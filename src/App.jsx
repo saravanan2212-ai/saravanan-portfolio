@@ -11,9 +11,7 @@ function App() {
 
       {/* ================= NAVBAR ================= */}
       <nav className="navbar">
-        <div className="logo">
-          SARAVANAN A<span>.</span>
-        </div>
+        <div className="logo">SARAVANAN A</div>
 
         <div className="nav-links">
           <a href="#home">Home</a>
