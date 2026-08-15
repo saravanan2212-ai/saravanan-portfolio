@@ -1107,3 +1107,31 @@ section h2 span {
 
   transform: translateY(-2px);
 }
+
+/* Mobile Certificate Fix */
+@media (max-width: 768px) {
+  .certificates-section {
+    padding: 80px 6%;
+    overflow: visible;
+  }
+
+  .certificates-grid {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .certificate-card {
+    width: 100%;
+    display: block;
+    overflow: hidden;
+  }
+
+  .certificate-card img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: contain;
+  }
+}
