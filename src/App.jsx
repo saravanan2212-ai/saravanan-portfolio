@@ -225,7 +225,6 @@ function App() {
 
       {/* ================= CERTIFICATES ================= */}
       <section className="certificates-section" id="certificates">
-
         <p className="section-label">MY CERTIFICATES</p>
 
         <h2>
@@ -237,57 +236,87 @@ function App() {
           <div className="certificate-card">
             <img
               src={new URL("./assets/Certificate1.jpg", import.meta.url).href}
-              alt="Cloud Computing AWS"
+              alt="Bootcamp On Cloud Computing"
             />
+            <h3>Bootcamp On Cloud Computing</h3>
+          </div>
 
+          <div className="certificate-card">
             <img
               src={new URL("./assets/Certificate2.jpg", import.meta.url).href}
-              alt="Certificate 2"
+              alt="Cloud Computing AWS"
             />
+            <h3>Cloud Computing AWS</h3>
+          </div>
 
+          <div className="certificate-card">
             <img
               src={new URL("./assets/Certificate3.jpg", import.meta.url).href}
-              alt="Certificate 3"
+              alt="Full Stack Developer Internship"
             />
+            <h3>Full Stack Developer Internship</h3>
+          </div>
 
+          <div className="certificate-card">
             <img
               src={new URL("./assets/Certificate4.jpg", import.meta.url).href}
-              alt="Certificate 4"
+              alt="Java Programming"
             />
+            <h3>Java Programming</h3>
+          </div>
 
+          <div className="certificate-card">
             <img
               src={new URL("./assets/Certificate5.jpg", import.meta.url).href}
-              alt="Certificate 5"
+              alt="Python Programming"
             />
+            <h3>Python Programming</h3>
+          </div>
 
+          <div className="certificate-card">
             <img
               src={new URL("./assets/Certificate6.jpg", import.meta.url).href}
-              alt="Certificate 6"
+              alt="Cloud Computing Intern"
             />
+            <h3>Cloud Computing Intern</h3>
+          </div>
 
+          <div className="certificate-card">
             <img
               src={new URL("./assets/Certificate7.jpg", import.meta.url).href}
-              alt="Certificate 7"
+              alt="Full Stack Developer Intern"
             />
+            <h3>Full Stack Developer Intern</h3>
+          </div>
 
+          <div className="certificate-card">
             <img
               src={new URL("./assets/Certificate8.jpg", import.meta.url).href}
-              alt="Certificate 8"
+              alt="Python Developer Intern"
             />
+            <h3>Python Developer Intern</h3>
+          </div>
 
+          <div className="certificate-card">
             <img
               src={new URL("./assets/Certificate9.jpg", import.meta.url).href}
-              alt="Certificate 9"
+              alt="Java Developer Intern"
             />
+            <h3>Java Developer Intern</h3>
+          </div>
 
+          <div className="certificate-card">
             <img
               src={new URL("./assets/Certificate10.jpg", import.meta.url).href}
-              alt="Certificate 10"
+              alt="Python Programming"
             />
+            <h3>Python Programming</h3>
+          </div>
 
+          <div className="certificate-card">
             <img
               src={new URL("./assets/Certificate11.jpg", import.meta.url).href}
-              alt="Certificate 11"
+              alt="Build Your Own Responsive Website"
             />
             <h3>Build Your Own Responsive Website</h3>
           </div>
