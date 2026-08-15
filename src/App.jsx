@@ -40,7 +40,7 @@ function App() {
           <h2>Full Stack Developer</h2>
 
           <p className="about">
-            I’m Saravanan A, a third year B.Tech Artificial Intelligence
+            Third year B.Tech Artificial Intelligence
             and Data Science student passionate about Full Stack Development
             and Artificial Intelligence. I enjoy building creative and
             practical solutions using modern technologies and continuously
