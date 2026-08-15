@@ -236,7 +236,7 @@ function App() {
 
           <div className="certificate-card">
             <img
-              src={new URL("./assets/certificate1.jpg", import.meta.url).href}
+              src={new URL("./assets/Certificate1.jpg", import.meta.url).href}
               alt="Cloud Computing AWS"
             />
             <h3>Bootcamp On Cloud Computing</h3>
