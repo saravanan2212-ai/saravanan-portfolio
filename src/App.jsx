@@ -352,6 +352,21 @@ function App() {
               </div>
 
             </div>
+            <div className="contact-card">
+              <div className="contact-icon">📞</div>
+              <div>
+                <h3>Phone</h3>
+                <p>9042336121</p>
+              </div>
+            </div>
+
+            <div className="contact-card">
+              <div className="contact-icon">📸</div>
+              <div>
+                <h3>Instagram</h3>
+                <p>@mr_fearlez_22</p>
+              </div>
+            </div>
 
             <a
               href="https://www.linkedin.com/in/saravanan-a-797887355/"
