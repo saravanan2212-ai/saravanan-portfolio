@@ -1230,3 +1230,15 @@ section h2 span {
   }
 
 }
+
+/* Contact links */
+.contact-card a {
+  color: #9ca3af;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.contact-card a:hover {
+  color: #38bdf8;
+  text-decoration: none;
+}
