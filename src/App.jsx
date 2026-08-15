@@ -362,9 +362,17 @@ function App() {
 
             <div className="contact-card">
               <div className="contact-icon">📸</div>
+
               <div>
                 <h3>Instagram</h3>
-                <p>@mr_fearlez_22</p>
+
+                <a
+                  href="https://www.instagram.com/mr_fearlez_22/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  @mr_fearlez_22
+                </a>
               </div>
             </div>
 
