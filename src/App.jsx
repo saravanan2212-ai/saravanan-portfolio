@@ -35,7 +35,7 @@ function App() {
 
           <p className="intro">HELLO, I'M</p>
 
-          <h1>SARAVANAN A</h1>
+          <h1>A SARAVANAN </h1>
 
           <h2>Full Stack Developer</h2>
 
