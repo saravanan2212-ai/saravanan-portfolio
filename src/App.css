@@ -35,9 +35,14 @@ textarea {
 .profile-page {
   width: 100%;
   min-height: 100vh;
+
   background:
-    radial-gradient(circle at 15% 15%, rgba(59, 130, 246, 0.09), transparent 28%),
-    radial-gradient(circle at 85% 40%, rgba(6, 182, 212, 0.07), transparent 25%),
+    radial-gradient(circle at 15% 15%,
+      rgba(59, 130, 246, 0.09),
+      transparent 28%),
+    radial-gradient(circle at 85% 40%,
+      rgba(6, 182, 212, 0.07),
+      transparent 25%),
     #050816;
 }
 
@@ -61,6 +66,7 @@ textarea {
   padding: 0 7%;
 
   background: rgba(5, 8, 22, 0.88);
+
   border-bottom: 1px solid rgba(148, 163, 184, 0.12);
 
   backdrop-filter: blur(16px);
@@ -72,9 +78,13 @@ textarea {
   font-weight: 800;
   letter-spacing: 2px;
 
-  background: linear-gradient(90deg, #3b82f6, #06b6d4);
+  background: linear-gradient(90deg,
+      #3b82f6,
+      #06b6d4);
+
   -webkit-background-clip: text;
   background-clip: text;
+
   color: transparent;
 }
 
@@ -88,6 +98,7 @@ textarea {
   position: relative;
 
   color: #cbd5e1;
+
   font-size: 0.92rem;
   font-weight: 500;
 
@@ -98,13 +109,16 @@ textarea {
   content: "";
 
   position: absolute;
+
   left: 0;
   bottom: -8px;
 
   width: 0;
   height: 2px;
 
-  background: linear-gradient(90deg, #3b82f6, #06b6d4);
+  background: linear-gradient(90deg,
+      #3b82f6,
+      #06b6d4);
 
   transition: width 0.3s ease;
 }
@@ -121,10 +135,13 @@ textarea {
   display: none;
 
   border: none;
+
   background: transparent;
+
   color: #ffffff;
 
   font-size: 1.8rem;
+
   cursor: pointer;
 }
 
@@ -140,6 +157,7 @@ textarea {
   max-width: 1250px;
 
   margin: auto;
+
   padding: 80px 6%;
 
   display: flex;
@@ -151,26 +169,30 @@ textarea {
 
 
 /* =========================================================
-   PROFILE IMAGE - SQUARE RESPONSIVE
-========================================================= */
-
-/* =========================================================
-   PROFILE IMAGE - CLEAN SQUARE
+   PROFILE IMAGE
+   PERFECT CIRCLE
 ========================================================= */
 
 .profile-image {
   flex-shrink: 0;
 
-  width: 310px;
-  height: 310px;
+  width: 350px;
+  height: 350px;
 
-  padding: 0;
+  padding: 5px;
 
-  border-radius: 18px;
+  margin: 0;
 
-  background: transparent;
+  border-radius: 50%;
 
-  box-shadow: none;
+  background: linear-gradient(135deg,
+      #3b82f6,
+      #06b6d4,
+      #3b82f6);
+
+  box-shadow:
+    0 0 35px rgba(59, 130, 246, 0.25),
+    0 0 70px rgba(6, 182, 212, 0.10);
 
   overflow: hidden;
 }
@@ -182,84 +204,12 @@ textarea {
   display: block;
 
   object-fit: cover;
+
   object-position: center;
 
-  border-radius: 18px;
+  border-radius: 50%;
 
-  border: none;
-}
-
-
-/* =========================================================
-   TABLET
-========================================================= */
-
-@media (max-width: 1000px) {
-
-  .profile-image {
-    width: 250px;
-    height: 250px;
-
-    border-radius: 16px;
-  }
-
-  .profile-image img {
-    border-radius: 16px;
-  }
-}
-
-
-/* =========================================================
-   MOBILE
-========================================================= */
-
-@media (max-width: 768px) {
-
-  .profile-image {
-    width: 220px;
-    height: 220px;
-
-    margin: 0 auto;
-
-    padding: 0;
-
-    border-radius: 16px;
-
-    background: transparent;
-
-    box-shadow: none;
-  }
-
-  .profile-image img {
-    width: 100%;
-    height: 100%;
-
-    object-fit: cover;
-    object-position: center;
-
-    border: none;
-
-    border-radius: 16px;
-  }
-}
-
-
-/* =========================================================
-   SMALL MOBILE
-========================================================= */
-
-@media (max-width: 420px) {
-
-  .profile-image {
-    width: 190px;
-    height: 190px;
-
-    border-radius: 14px;
-  }
-
-  .profile-image img {
-    border-radius: 14px;
-  }
+  border: 5px solid #080d20;
 }
 
 
@@ -288,6 +238,7 @@ textarea {
   line-height: 1.05;
 
   font-weight: 800;
+
   letter-spacing: -2px;
 
   margin-bottom: 12px;
@@ -300,11 +251,17 @@ textarea {
 
   font-size: clamp(1.25rem, 2.5vw, 1.8rem);
 
+  line-height: 1.4;
+
   font-weight: 600;
 
-  background: linear-gradient(90deg, #3b82f6, #06b6d4);
+  background: linear-gradient(90deg,
+      #3b82f6,
+      #06b6d4);
+
   -webkit-background-clip: text;
   background-clip: text;
+
   color: transparent;
 }
 
@@ -314,14 +271,21 @@ textarea {
   color: #94a3b8;
 
   font-size: 1.03rem;
+
   line-height: 1.9;
 
   margin-bottom: 30px;
 }
 
+
+/* =========================================================
+   HERO BUTTONS
+========================================================= */
+
 .hero-buttons {
   display: flex;
   align-items: center;
+
   flex-wrap: wrap;
 
   gap: 14px;
@@ -330,15 +294,18 @@ textarea {
 .project-btn,
 .outline-btn {
   display: inline-flex;
+
   align-items: center;
   justify-content: center;
 
   min-height: 48px;
+
   padding: 0 22px;
 
   border-radius: 8px;
 
   font-size: 0.92rem;
+
   font-weight: 600;
 
   transition: all 0.3s ease;
@@ -351,7 +318,8 @@ textarea {
       #2563eb,
       #0891b2);
 
-  box-shadow: 0 8px 25px rgba(37, 99, 235, 0.2);
+  box-shadow:
+    0 8px 25px rgba(37, 99, 235, 0.2);
 }
 
 .project-btn:hover {
@@ -381,7 +349,7 @@ textarea {
 
 
 /* =========================================================
-   COMMON SECTION
+   COMMON SECTIONS
 ========================================================= */
 
 .about-section,
@@ -403,6 +371,7 @@ textarea {
   color: #06b6d4;
 
   font-size: 0.78rem;
+
   font-weight: 700;
 
   letter-spacing: 3px;
@@ -448,6 +417,7 @@ section h2 span {
   color: #94a3b8;
 
   font-size: 1.03rem;
+
   line-height: 1.9;
 }
 
@@ -596,6 +566,7 @@ section h2 span {
   color: #3b82f6;
 
   font-size: 0.85rem;
+
   font-weight: 800;
 
   letter-spacing: 2px;
@@ -705,6 +676,7 @@ section h2 span {
   display: flex;
 
   align-items: center;
+
   justify-content: center;
 
   padding: 15px;
@@ -733,6 +705,8 @@ section h2 span {
   color: #94a3b8;
 
   font-size: 1rem;
+
+  line-height: 1.75;
 }
 
 .contact-container {
@@ -950,6 +924,7 @@ section h2 span {
   flex-direction: column;
 
   align-items: center;
+
   justify-content: center;
 
   text-align: center;
@@ -1024,20 +999,21 @@ section h2 span {
     padding-right: 5%;
   }
 
-  /* SQUARE PROFILE IMAGE */
+  /* PROFILE */
+
   .profile-image {
-    width: 250px;
-    height: 250px;
+    width: 280px;
+    height: 280px;
 
     padding: 5px;
 
-    border-radius: 16px;
+    border-radius: 50%;
   }
 
   .profile-image img {
-    border-radius: 12px;
+    border-radius: 50%;
 
-    border-width: 5px;
+    border: 5px solid #080d20;
   }
 
   .skills-grid {
@@ -1106,6 +1082,7 @@ section h2 span {
     border-bottom: 1px solid rgba(148, 163, 184, 0.12);
 
     backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
 
     transform: translateY(-130%);
 
@@ -1156,17 +1133,26 @@ section h2 span {
   }
 
 
-  /* ---------- MOBILE PROFILE IMAGE ---------- */
+  /* ---------- MOBILE PROFILE ---------- */
 
   .profile-image {
-    width: 220px;
-    height: 220px;
-
-    padding: 4px;
-
-    border-radius: 16px;
+    width: 250px;
+    height: 250px;
 
     margin: 0 auto;
+
+    padding: 5px;
+
+    border-radius: 50%;
+
+    background: linear-gradient(135deg,
+        #3b82f6,
+        #06b6d4,
+        #3b82f6);
+
+    box-shadow:
+      0 0 30px rgba(59, 130, 246, 0.22),
+      0 0 55px rgba(6, 182, 212, 0.08);
 
     overflow: hidden;
   }
@@ -1176,11 +1162,12 @@ section h2 span {
     height: 100%;
 
     object-fit: cover;
+
     object-position: center;
 
-    border-radius: 12px;
+    border-radius: 50%;
 
-    border: 4px solid #080d20;
+    border: 5px solid #080d20;
   }
 
 
@@ -1195,7 +1182,9 @@ section h2 span {
   }
 
   .hero h1 {
-    font-size: clamp(2.6rem, 13vw, 4rem);
+    font-size: clamp(2.6rem,
+        13vw,
+        4rem);
 
     letter-spacing: -1.5px;
   }
@@ -1325,6 +1314,8 @@ section h2 span {
   }
 
   .certificate-card img {
+    width: 100%;
+
     height: auto;
 
     max-height: 270px;
@@ -1427,6 +1418,7 @@ section h2 span {
 
   .hero {
     padding-left: 18px;
+
     padding-right: 18px;
   }
 
@@ -1434,18 +1426,18 @@ section h2 span {
   /* ---------- SMALL MOBILE PROFILE ---------- */
 
   .profile-image {
-    width: 190px;
-    height: 190px;
+    width: 220px;
+    height: 220px;
 
     padding: 4px;
 
-    border-radius: 14px;
+    border-radius: 50%;
   }
 
   .profile-image img {
-    border-radius: 10px;
+    border-radius: 50%;
 
-    border-width: 4px;
+    border: 4px solid #080d20;
   }
 
 
@@ -1467,6 +1459,7 @@ section h2 span {
   .certificates-section,
   .contact-section {
     padding-left: 18px;
+
     padding-right: 18px;
   }
 
@@ -1485,11 +1478,46 @@ section h2 span {
 
 
 /* =========================================================
+   VERY SMALL PHONES
+========================================================= */
+
+@media (max-width: 360px) {
+
+  .profile-image {
+    width: 195px;
+    height: 195px;
+  }
+
+  .hero {
+    padding-top: 45px;
+  }
+
+  .hero h1 {
+    font-size: 2.2rem;
+  }
+
+  .hero h2 {
+    font-size: 1rem;
+  }
+
+  .hero .about {
+    font-size: 0.82rem;
+  }
+
+  .project-btn,
+  .outline-btn {
+    max-width: 280px;
+  }
+}
+
+
+/* =========================================================
    ACCESSIBILITY
 ========================================================= */
 
 :focus-visible {
   outline: 2px solid #06b6d4;
+
   outline-offset: 3px;
 }
 
