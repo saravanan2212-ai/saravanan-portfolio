@@ -135,7 +135,6 @@ textarea {
   display: none;
 
   border: none;
-
   background: transparent;
 
   color: #ffffff;
@@ -169,30 +168,29 @@ textarea {
 
 
 /* =========================================================
-   PROFILE IMAGE
+   PROFILE PHOTO
    PERFECT CIRCLE
+   NO BLUE BACKGROUND
+   NO BLUE BORDER
+   NO GLOW
 ========================================================= */
 
 .profile-image {
   flex-shrink: 0;
 
-  width: 350px;
-  height: 350px;
-
-  padding: 5px;
+  width: 330px;
+  height: 330px;
 
   margin: 0;
+  padding: 0;
 
   border-radius: 50%;
 
-  background: linear-gradient(135deg,
-      #3b82f6,
-      #06b6d4,
-      #3b82f6);
+  background: transparent !important;
 
-  box-shadow:
-    0 0 35px rgba(59, 130, 246, 0.25),
-    0 0 70px rgba(6, 182, 212, 0.10);
+  border: none !important;
+
+  box-shadow: none !important;
 
   overflow: hidden;
 }
@@ -204,12 +202,16 @@ textarea {
   display: block;
 
   object-fit: cover;
-
   object-position: center;
 
   border-radius: 50%;
 
-  border: 5px solid #080d20;
+  border: none !important;
+  outline: none !important;
+
+  background: transparent !important;
+
+  box-shadow: none !important;
 }
 
 
@@ -999,21 +1001,37 @@ section h2 span {
     padding-right: 5%;
   }
 
-  /* PROFILE */
+  /* PROFILE - TABLET */
 
   .profile-image {
-    width: 280px;
-    height: 280px;
+    width: 290px;
+    height: 290px;
 
-    padding: 5px;
+    padding: 0;
 
     border-radius: 50%;
+
+    background: transparent !important;
+
+    border: none !important;
+
+    box-shadow: none !important;
   }
 
   .profile-image img {
+    width: 100%;
+    height: 100%;
+
     border-radius: 50%;
 
-    border: 5px solid #080d20;
+    border: none !important;
+    outline: none !important;
+
+    background: transparent !important;
+
+    box-shadow: none !important;
+
+    object-fit: cover;
   }
 
   .skills-grid {
@@ -1141,18 +1159,15 @@ section h2 span {
 
     margin: 0 auto;
 
-    padding: 5px;
+    padding: 0;
 
     border-radius: 50%;
 
-    background: linear-gradient(135deg,
-        #3b82f6,
-        #06b6d4,
-        #3b82f6);
+    background: transparent !important;
 
-    box-shadow:
-      0 0 30px rgba(59, 130, 246, 0.22),
-      0 0 55px rgba(6, 182, 212, 0.08);
+    border: none !important;
+
+    box-shadow: none !important;
 
     overflow: hidden;
   }
@@ -1161,13 +1176,19 @@ section h2 span {
     width: 100%;
     height: 100%;
 
-    object-fit: cover;
+    display: block;
 
+    object-fit: cover;
     object-position: center;
 
     border-radius: 50%;
 
-    border: 5px solid #080d20;
+    border: none !important;
+    outline: none !important;
+
+    background: transparent !important;
+
+    box-shadow: none !important;
   }
 
 
@@ -1418,7 +1439,6 @@ section h2 span {
 
   .hero {
     padding-left: 18px;
-
     padding-right: 18px;
   }
 
@@ -1429,15 +1449,31 @@ section h2 span {
     width: 220px;
     height: 220px;
 
-    padding: 4px;
+    padding: 0;
 
     border-radius: 50%;
+
+    background: transparent !important;
+
+    border: none !important;
+
+    box-shadow: none !important;
   }
 
   .profile-image img {
+    width: 100%;
+    height: 100%;
+
     border-radius: 50%;
 
-    border: 4px solid #080d20;
+    border: none !important;
+    outline: none !important;
+
+    background: transparent !important;
+
+    box-shadow: none !important;
+
+    object-fit: cover;
   }
 
 
@@ -1459,7 +1495,6 @@ section h2 span {
   .certificates-section,
   .contact-section {
     padding-left: 18px;
-
     padding-right: 18px;
   }
 
@@ -1484,8 +1519,14 @@ section h2 span {
 @media (max-width: 360px) {
 
   .profile-image {
-    width: 195px;
-    height: 195px;
+    width: 200px;
+    height: 200px;
+
+    border-radius: 50%;
+  }
+
+  .profile-image img {
+    border-radius: 50%;
   }
 
   .hero {
