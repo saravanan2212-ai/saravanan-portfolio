@@ -1,6 +1,6 @@
 import { useState } from "react";
 import "./App.css";
-import profile from "./Profile.jpg";
+import profile from "./profile.jpg";
 import resume from "./assets/Saravanan_A_Resume.pdf";
 
 function App() {
