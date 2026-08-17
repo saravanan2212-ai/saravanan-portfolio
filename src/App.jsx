@@ -11,7 +11,6 @@ function App() {
     <main className="profile-page">
 
       {/* ================= NAVBAR ================= */}
-      {/* ================= NAVBAR ================= */}
       <nav className="navbar">
 
         <div className="logo">
@@ -50,7 +49,7 @@ function App() {
           className="menu-btn"
           onClick={() => setMenuOpen(!menuOpen)}
         >
-          {menuOpen ? "✕" : "☰"}
+          ☰
         </button>
 
       </nav>
