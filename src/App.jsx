@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./App.css";
 import profile from "./profile.jpg";
 import resume from "./assets/Saravanan_A_Resume.pdf";
@@ -6,11 +6,37 @@ import resume from "./assets/Saravanan_A_Resume.pdf";
 function App() {
   const [submitted, setSubmitted] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [selectedProject, setSelectedProject] = useState(null);
+
+  /* ================= SCROLL REVEAL ================= */
+
+  useEffect(() => {
+    const elements = document.querySelectorAll(".reveal");
+
+    const handleScroll = () => {
+      elements.forEach((element) => {
+        const position = element.getBoundingClientRect().top;
+
+        if (position < window.innerHeight - 100) {
+          element.classList.add("active");
+        }
+      });
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    handleScroll();
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   return (
     <main className="profile-page">
 
       {/* ================= NAVBAR ================= */}
+
       <nav className="navbar">
 
         <div className="logo">
@@ -54,8 +80,10 @@ function App() {
 
       </nav>
 
+
       {/* ================= HERO ================= */}
-      <section className="hero" id="home">
+
+      <section className="hero reveal" id="home">
 
         <div className="profile-image">
           <img src={profile} alt="Saravanan A" />
@@ -63,11 +91,17 @@ function App() {
 
         <div className="hero-content">
 
-          <p className="intro">HELLO, I'M</p>
+          <p className="intro">
+            HELLO, I'M
+          </p>
 
-          <h1>A SARAVANAN </h1>
+          <h1>
+            A SARAVANAN
+          </h1>
 
-          <h2>Aspiring Full Stack Developer</h2>
+          <h2>
+            Aspiring Full Stack Developer
+          </h2>
 
           <p className="about">
             Third year B.Tech Artificial Intelligence
@@ -79,32 +113,51 @@ function App() {
 
           <div className="hero-buttons">
 
-            <a href="#projects" className="project-btn">
+            <a
+              href="#projects"
+              className="project-btn"
+            >
               View My Projects
             </a>
 
-            <a href={resume} download="Saravanan_A_Resume.pdf" className="outline-btn">
+            <a
+              href={resume}
+              download="Saravanan_A_Resume.pdf"
+              className="outline-btn"
+            >
               Download Resume
             </a>
 
-            <a href="#contact" className="outline-btn">
+            <a
+              href="#contact"
+              className="outline-btn"
+            >
               Contact Me
             </a>
 
           </div>
 
         </div>
+
       </section>
 
 
       {/* ================= ABOUT ================= */}
-      <section className="about-section" id="about">
 
-        <p className="section-label">ABOUT ME</p>
+      <section
+        className="about-section reveal"
+        id="about"
+      >
+
+        <p className="section-label">
+          ABOUT ME
+        </p>
 
         <h2>
           Turning Ideas Into{" "}
-          <span>Intelligent Solutions</span>
+          <span>
+            Intelligent Solutions
+          </span>
         </h2>
 
         <p className="about-text">
@@ -118,65 +171,122 @@ function App() {
 
 
       {/* ================= SKILLS ================= */}
-      <section className="skills-section" id="skills">
 
-        <p className="section-label">MY SKILLS</p>
+      <div className="skills-grid">
 
-        <h2>
-          Technologies I <span>Work With</span>
-        </h2>
-
-        <div className="skills-grid">
-
-          <div className="skill-card">
+        <div className="skill-card">
+          <div className="skill-header">
             <h3>Python</h3>
-            <p>Artificial Intelligence & Machine Learning</p>
+            <span>85%</span>
           </div>
 
-          <div className="skill-card">
-            <h3>Java</h3>
-            <p>Programming & Development</p>
-          </div>
+          <p>Artificial Intelligence & Machine Learning</p>
 
-          <div className="skill-card">
-            <h3>SQL</h3>
-            <p>Database Management</p>
+          <div className="skill-bar">
+            <div className="skill-progress" style={{ width: "85%" }}></div>
           </div>
-
-          <div className="skill-card">
-            <h3>React</h3>
-            <p>Frontend Development</p>
-          </div>
-
-          <div className="skill-card">
-            <h3>AWS</h3>
-            <p>Cloud Computing</p>
-          </div>
-
-          <div className="skill-card">
-            <h3>Node.js</h3>
-            <p>Backend Development</p>
-          </div>
-
         </div>
-      </section>
+
+        <div className="skill-card">
+          <div className="skill-header">
+            <h3>React</h3>
+            <span>75%</span>
+          </div>
+
+          <p>Frontend Development</p>
+
+          <div className="skill-bar">
+            <div className="skill-progress" style={{ width: "75%" }}></div>
+          </div>
+        </div>
+
+        <div className="skill-card">
+          <div className="skill-header">
+            <h3>Java</h3>
+            <span>70%</span>
+          </div>
+
+          <p>Programming & Development</p>
+
+          <div className="skill-bar">
+            <div className="skill-progress" style={{ width: "70%" }}></div>
+          </div>
+        </div>
+
+        <div className="skill-card">
+          <div className="skill-header">
+            <h3>SQL</h3>
+            <span>80%</span>
+          </div>
+
+          <p>Database Management</p>
+
+          <div className="skill-bar">
+            <div className="skill-progress" style={{ width: "80%" }}></div>
+          </div>
+        </div>
+
+        <div className="skill-card">
+          <div className="skill-header">
+            <h3>AWS</h3>
+            <span>65%</span>
+          </div>
+
+          <p>Cloud Computing</p>
+
+          <div className="skill-bar">
+            <div className="skill-progress" style={{ width: "65%" }}></div>
+          </div>
+        </div>
+
+        <div className="skill-card">
+          <div className="skill-header">
+            <h3>Node.js</h3>
+            <span>70%</span>
+          </div>
+
+          <p>Backend Development</p>
+
+          <div className="skill-bar">
+            <div className="skill-progress" style={{ width: "70%" }}></div>
+          </div>
+        </div>
+
+      </div>
 
 
       {/* ================= PROJECTS ================= */}
-      <section className="projects-section" id="projects">
 
-        <p className="section-label">MY WORK</p>
+      <section
+        className="projects-section reveal"
+        id="projects"
+      >
+
+        <p className="section-label">
+          MY WORK
+        </p>
 
         <h2>
-          Featured <span>Projects</span>
+          Featured{" "}
+          <span>
+            Projects
+          </span>
         </h2>
 
         <div className="projects-grid">
 
-          <div className="project-card">
-            <div className="project-number">01</div>
 
-            <h3>Smart Queue Management System</h3>
+          {/* ================= PROJECT 01 ================= */}
+
+          <div className="project-card">
+
+            <div className="project-number">
+              01
+            </div>
+
+            <h3>
+              Smart Queue Management System
+            </h3>
 
             <p>
               An intelligent queue management solution designed to reduce
@@ -188,13 +298,59 @@ function App() {
               <span>Python</span>
               <span>React</span>
             </div>
-          </div>
 
+            <div className="project-links">
+
+              <a
+                href="https://github.com/saravanan2212-ai"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                GitHub ↗
+              </a>
+
+              <a
+                href="#"
+                onClick={(e) => e.preventDefault()}
+              >
+                Live Demo ↗
+              </a>
+
+            </div>
+
+          </div>
+          <button
+            className="project-details-btn"
+            onClick={() =>
+              setSelectedProject({
+                title: "Smart Queue Management System",
+                description:
+                  "An intelligent queue management solution designed to reduce waiting time and improve patient flow in government hospitals.",
+                features: [
+                  "Digital queue management",
+                  "Reduced patient waiting time",
+                  "Improved patient flow",
+                  "Real-time queue monitoring",
+                ],
+                technologies: ["AI", "Python", "React"],
+              })
+            }
+          >
+            View Details →
+          </button>
+
+
+          {/* ================= PROJECT 02 ================= */}
 
           <div className="project-card">
-            <div className="project-number">02</div>
 
-            <h3>SkillSphere AI</h3>
+            <div className="project-number">
+              02
+            </div>
+
+            <h3>
+              SkillSphere AI
+            </h3>
 
             <p>
               An AI-powered platform that brings internships, jobs,
@@ -207,13 +363,59 @@ function App() {
               <span>React</span>
               <span>Node.js</span>
             </div>
-          </div>
 
+            <div className="project-links">
+
+              <a
+                href="https://github.com/saravanan2212-ai"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                GitHub ↗
+              </a>
+
+              <a
+                href="#"
+                onClick={(e) => e.preventDefault()}
+              >
+                Live Demo ↗
+              </a>
+
+            </div>
+
+          </div>
+          <button
+            className="project-details-btn"
+            onClick={() =>
+              setSelectedProject({
+                title: "SkillSphere AI",
+                description:
+                  "An AI-powered platform that brings internships, jobs, hackathons, events and career opportunities together in one place.",
+                features: [
+                  "Internship opportunities",
+                  "Job alerts",
+                  "Hackathon discovery",
+                  "AI career guidance",
+                ],
+                technologies: ["AI", "React", "Node.js"],
+              })
+            }
+          >
+            View Details →
+          </button>
+
+
+          {/* ================= PROJECT 03 ================= */}
 
           <div className="project-card">
-            <div className="project-number">03</div>
 
-            <h3>AI Inventory & Demand Prediction</h3>
+            <div className="project-number">
+              03
+            </div>
+
+            <h3>
+              AI Inventory & Demand Prediction
+            </h3>
 
             <p>
               A smart inventory system that predicts product demand,
@@ -226,13 +428,59 @@ function App() {
               <span>ML</span>
               <span>MySQL</span>
             </div>
-          </div>
 
+            <div className="project-links">
+
+              <a
+                href="https://github.com/saravanan2212-ai"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                GitHub ↗
+              </a>
+
+              <a
+                href="#"
+                onClick={(e) => e.preventDefault()}
+              >
+                Live Demo ↗
+              </a>
+
+            </div>
+
+          </div>
+          <button
+            className="project-details-btn"
+            onClick={() =>
+              setSelectedProject({
+                title: "AI Inventory & Demand Prediction",
+                description:
+                  "A smart inventory system that predicts product demand and helps businesses make better purchasing decisions.",
+                features: [
+                  "Demand prediction",
+                  "Low-stock alerts",
+                  "Inventory monitoring",
+                  "Purchase recommendations",
+                ],
+                technologies: ["Python", "Machine Learning", "MySQL"],
+              })
+            }
+          >
+            View Details →
+          </button>
+
+
+          {/* ================= PROJECT 04 ================= */}
 
           <div className="project-card">
-            <div className="project-number">04</div>
 
-            <h3>AI MSME Growth Advisor</h3>
+            <div className="project-number">
+              04
+            </div>
+
+            <h3>
+              AI MSME Growth Advisor
+            </h3>
 
             <p>
               An AI-based business assistant designed to help MSMEs with
@@ -245,121 +493,237 @@ function App() {
               <span>Python</span>
               <span>Cloud</span>
             </div>
+
+            <div className="project-links">
+
+              <a
+                href="https://github.com/saravanan2212-ai"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                GitHub ↗
+              </a>
+
+              <a
+                href="#"
+                onClick={(e) => e.preventDefault()}
+              >
+                Live Demo ↗
+              </a>
+
+            </div>
+
           </div>
 
         </div>
+        <button
+          className="project-details-btn"
+          onClick={() =>
+            setSelectedProject({
+              title: "AI MSME Growth Advisor",
+              description:
+                "An AI-based business assistant designed to help MSMEs with sales prediction, cash-flow insights and business decisions.",
+              features: [
+                "Sales prediction",
+                "Cash-flow insights",
+                "Marketing suggestions",
+                "Business recommendations",
+              ],
+              technologies: ["AI", "Python", "Cloud"],
+            })
+          }
+        >
+          View Details →
+        </button>
+
       </section>
 
 
+
       {/* ================= CERTIFICATES ================= */}
-      <section className="certificates-section" id="certificates">
-        <p className="section-label">MY CERTIFICATES</p>
+
+      <section
+        className="certificates-section reveal"
+        id="certificates"
+      >
+
+        <p className="section-label">
+          MY CERTIFICATES
+        </p>
 
         <h2>
-          Learning & <span>Achievements</span>
+          Learning &{" "}
+          <span>
+            Achievements
+          </span>
         </h2>
 
         <div className="certificates-grid">
 
           <div className="certificate-card">
             <img
-              src={new URL("./assets/Certificate1.jpg", import.meta.url).href}
+              src={new URL(
+                "./assets/Certificate1.jpg",
+                import.meta.url
+              ).href}
               alt="Bootcamp On Cloud Computing"
             />
-            <h3>Bootcamp On Cloud Computing</h3>
+            <h3>
+              Bootcamp On Cloud Computing
+            </h3>
           </div>
 
           <div className="certificate-card">
             <img
-              src={new URL("./assets/Certificate2.jpg", import.meta.url).href}
+              src={new URL(
+                "./assets/Certificate2.jpg",
+                import.meta.url
+              ).href}
               alt="Cloud Computing AWS"
             />
-            <h3>Cloud Computing AWS</h3>
+            <h3>
+              Cloud Computing AWS
+            </h3>
           </div>
 
           <div className="certificate-card">
             <img
-              src={new URL("./assets/Certificate3.jpg", import.meta.url).href}
+              src={new URL(
+                "./assets/Certificate3.jpg",
+                import.meta.url
+              ).href}
               alt="Full Stack Developer Internship"
             />
-            <h3>Full Stack Developer Internship</h3>
+            <h3>
+              Full Stack Developer Internship
+            </h3>
           </div>
 
           <div className="certificate-card">
             <img
-              src={new URL("./assets/Certificate4.jpg", import.meta.url).href}
+              src={new URL(
+                "./assets/Certificate4.jpg",
+                import.meta.url
+              ).href}
               alt="Java Programming"
             />
-            <h3>Java Programming</h3>
+            <h3>
+              Java Programming
+            </h3>
           </div>
 
           <div className="certificate-card">
             <img
-              src={new URL("./assets/Certificate5.jpg", import.meta.url).href}
+              src={new URL(
+                "./assets/Certificate5.jpg",
+                import.meta.url
+              ).href}
               alt="Python Programming"
             />
-            <h3>Python Programming</h3>
+            <h3>
+              Python Programming
+            </h3>
           </div>
 
           <div className="certificate-card">
             <img
-              src={new URL("./assets/Certificate6.jpg", import.meta.url).href}
+              src={new URL(
+                "./assets/Certificate6.jpg",
+                import.meta.url
+              ).href}
               alt="Cloud Computing Intern"
             />
-            <h3>Cloud Computing Intern</h3>
+            <h3>
+              Cloud Computing Intern
+            </h3>
           </div>
 
           <div className="certificate-card">
             <img
-              src={new URL("./assets/Certificate7.jpg", import.meta.url).href}
+              src={new URL(
+                "./assets/Certificate7.jpg",
+                import.meta.url
+              ).href}
               alt="Full Stack Developer Intern"
             />
-            <h3>Full Stack Developer Intern</h3>
+            <h3>
+              Full Stack Developer Intern
+            </h3>
           </div>
 
           <div className="certificate-card">
             <img
-              src={new URL("./assets/Certificate8.jpg", import.meta.url).href}
+              src={new URL(
+                "./assets/Certificate8.jpg",
+                import.meta.url
+              ).href}
               alt="Python Developer Intern"
             />
-            <h3>Python Developer Intern</h3>
+            <h3>
+              Python Developer Intern
+            </h3>
           </div>
 
           <div className="certificate-card">
             <img
-              src={new URL("./assets/Certificate9.jpg", import.meta.url).href}
+              src={new URL(
+                "./assets/Certificate9.jpg",
+                import.meta.url
+              ).href}
               alt="Java Developer Intern"
             />
-            <h3>Java Developer Intern</h3>
+            <h3>
+              Java Developer Intern
+            </h3>
           </div>
 
           <div className="certificate-card">
             <img
-              src={new URL("./assets/Certificate10.jpg", import.meta.url).href}
+              src={new URL(
+                "./assets/Certificate10.jpg",
+                import.meta.url
+              ).href}
               alt="Python Programming"
             />
-            <h3>Python Programming</h3>
+            <h3>
+              Python Programming
+            </h3>
           </div>
 
           <div className="certificate-card">
             <img
-              src={new URL("./assets/Certificate11.jpg", import.meta.url).href}
+              src={new URL(
+                "./assets/Certificate11.jpg",
+                import.meta.url
+              ).href}
               alt="Build Your Own Responsive Website"
             />
-            <h3>Build Your Own Responsive Website</h3>
+            <h3>
+              Build Your Own Responsive Website
+            </h3>
           </div>
 
         </div>
+
       </section>
 
 
       {/* ================= CONTACT ================= */}
-      <section className="contact-section" id="contact">
 
-        <p className="section-label">GET IN TOUCH</p>
+      <section
+        className="contact-section reveal"
+        id="contact"
+      >
+
+        <p className="section-label">
+          GET IN TOUCH
+        </p>
 
         <h2>
-          Let's <span>Connect</span>
+          Let's{" "}
+          <span>
+            Connect
+          </span>
         </h2>
 
         <p className="contact-intro">
@@ -369,32 +733,59 @@ function App() {
 
         <div className="contact-container">
 
-          {/* CONTACT DETAILS */}
+
+          {/* ================= CONTACT DETAILS ================= */}
+
           <div className="contact-info">
 
             <div className="contact-card">
 
-              <div className="contact-icon">✉</div>
+              <div className="contact-icon">
+                ✉
+              </div>
 
               <div>
-                <h3>Email</h3>
-                <p>saravanananand326@gmail.com</p>
+                <h3>
+                  Email
+                </h3>
+
+                <p>
+                  saravanananand326@gmail.com
+                </p>
               </div>
 
             </div>
+
+
             <div className="contact-card">
-              <div className="contact-icon">📞</div>
-              <div>
-                <h3>Phone</h3>
-                <p>9042336121</p>
+
+              <div className="contact-icon">
+                📞
               </div>
+
+              <div>
+                <h3>
+                  Phone
+                </h3>
+
+                <p>
+                  9042336121
+                </p>
+              </div>
+
             </div>
 
+
             <div className="contact-card">
-              <div className="contact-icon">📸</div>
+
+              <div className="contact-icon">
+                📸
+              </div>
 
               <div>
-                <h3>Instagram</h3>
+                <h3>
+                  Instagram
+                </h3>
 
                 <a
                   href="https://www.instagram.com/mr_fearlez_22/"
@@ -404,7 +795,9 @@ function App() {
                   @mr_fearlez_22
                 </a>
               </div>
+
             </div>
+
 
             <a
               href="https://www.linkedin.com/in/saravanan-a-797887355/"
@@ -412,12 +805,21 @@ function App() {
               rel="noopener noreferrer"
               className="contact-card contact-link"
             >
-              <div className="contact-icon">💼</div>
+
+              <div className="contact-icon">
+                💼
+              </div>
 
               <div>
-                <h3>LinkedIn</h3>
-                <p>Let's connect professionally</p>
+                <h3>
+                  LinkedIn
+                </h3>
+
+                <p>
+                  Let's connect professionally
+                </p>
               </div>
+
             </a>
 
 
@@ -427,23 +829,39 @@ function App() {
               rel="noopener noreferrer"
               className="contact-card contact-link"
             >
-              <div className="contact-icon">💻</div>
+
+              <div className="contact-icon">
+                💻
+              </div>
 
               <div>
-                <h3>GitHub</h3>
-                <p>Explore my projects & code</p>
+                <h3>
+                  GitHub
+                </h3>
+
+                <p>
+                  Explore my projects & code
+                </p>
               </div>
+
             </a>
 
           </div>
 
 
-          {/* CONTACT FORM */}
-          {submitted ? (
-            <div className="success-message">
-              <div className="success-icon">✓</div>
+          {/* ================= CONTACT FORM ================= */}
 
-              <h3>Message Sent Successfully!</h3>
+          {submitted ? (
+
+            <div className="success-message">
+
+              <div className="success-icon">
+                ✓
+              </div>
+
+              <h3>
+                Message Sent Successfully!
+              </h3>
 
               <p>
                 Thanks for reaching out. I'll get back to you soon.
@@ -455,11 +873,15 @@ function App() {
               >
                 Send Another Message
               </button>
+
             </div>
+
           ) : (
+
             <form
               className="contact-form"
               onSubmit={async (e) => {
+
                 e.preventDefault();
 
                 const form = e.target;
@@ -480,8 +902,10 @@ function App() {
                   form.reset();
                   setSubmitted(true);
                 }
+
               }}
             >
+
               <input
                 type="text"
                 name="name"
@@ -513,15 +937,83 @@ function App() {
               <button type="submit">
                 Send Message →
               </button>
+
             </form>
+
           )}
 
         </div>
+
       </section>
 
+      {/* ================= PROJECT MODAL ================= */}
 
-    </main >
+      {selectedProject && (
+        <div
+          className="project-modal-overlay"
+          onClick={() => setSelectedProject(null)}
+        >
+
+          <div
+            className="project-modal"
+            onClick={(e) => e.stopPropagation()}
+          >
+
+            <button
+              className="modal-close"
+              onClick={() => setSelectedProject(null)}
+            >
+              ✕
+            </button>
+
+            <p className="modal-label">
+              PROJECT DETAILS
+            </p>
+
+            <h2>
+              {selectedProject.title}
+            </h2>
+
+            <p className="modal-description">
+              {selectedProject.description}
+            </p>
+
+            <h3>
+              Key Features
+            </h3>
+
+            <ul className="modal-features">
+              {selectedProject.features.map((feature, index) => (
+                <li key={index}>
+                  {feature}
+                </li>
+              ))}
+            </ul>
+
+            <h3>
+              Technologies
+            </h3>
+
+            <div className="modal-tech">
+              {selectedProject.technologies.map(
+                (technology, index) => (
+                  <span key={index}>
+                    {technology}
+                  </span>
+                )
+              )}
+            </div>
+
+          </div>
+
+        </div>
+      )}
+
+
+    </main>
   );
 }
 
 export default App;
+
+
