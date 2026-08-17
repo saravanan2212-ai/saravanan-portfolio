@@ -1457,7 +1457,7 @@ section h2 span {
 ================================================ */
 
 .glass-effect {
-  a background: rgba(255, 255, 255, 0.8);
+  background: rgba(255, 255, 255, 0.8);
   backdrop-filter: blur(10px);
   border: 1px solid rgba(0, 200, 232, 0.1);
 }
