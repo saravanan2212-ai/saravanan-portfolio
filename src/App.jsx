@@ -5,24 +5,55 @@ import resume from "./assets/Saravanan_A_Resume.pdf";
 
 function App() {
   const [submitted, setSubmitted] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   return (
     <main className="profile-page">
 
       {/* ================= NAVBAR ================= */}
+      {/* ================= NAVBAR ================= */}
       <nav className="navbar">
-        <div className="logo">SARAVANAN A</div>
 
-        <div className="nav-links">
-          <a href="#home">Home</a>
-          <a href="#about">About</a>
-          <a href="#skills">Skills</a>
-          <a href="#projects">Projects</a>
-          <a href="#certificates">Certificates</a>
-          <a href="#contact">Contact</a>
+        <div className="logo">
+          SARAVANAN A
         </div>
-      </nav>
 
+        <div className={`nav-links ${menuOpen ? "active" : ""}`}>
+
+          <a href="#home" onClick={() => setMenuOpen(false)}>
+            Home
+          </a>
+
+          <a href="#about" onClick={() => setMenuOpen(false)}>
+            About
+          </a>
+
+          <a href="#skills" onClick={() => setMenuOpen(false)}>
+            Skills
+          </a>
+
+          <a href="#projects" onClick={() => setMenuOpen(false)}>
+            Projects
+          </a>
+
+          <a href="#certificates" onClick={() => setMenuOpen(false)}>
+            Certificates
+          </a>
+
+          <a href="#contact" onClick={() => setMenuOpen(false)}>
+            Contact
+          </a>
+
+        </div>
+
+        <button
+          className="menu-btn"
+          onClick={() => setMenuOpen(!menuOpen)}
+        >
+          {menuOpen ? "✕" : "☰"}
+        </button>
+
+      </nav>
 
       {/* ================= HERO ================= */}
       <section className="hero" id="home">
