@@ -1,6 +1,6 @@
 import { useState } from "react";
 import "./App.css";
-import profile from "./profile.jpg";
+import profile from "./Profile.jpg";
 import resume from "./assets/Saravanan_A_Resume.pdf";
 
 function App() {
@@ -25,70 +25,45 @@ function App() {
 
 
       {/* ================= HERO ================= */}
-      {/* ================= HERO ================= */}
-
       <section className="hero" id="home">
 
-        {/* PROFILE IMAGE - FIRST */}
         <div className="profile-image">
-          <img
-            src={profile}
-            alt="Saravanan A"
-          />
+          <img src={profile} alt="Saravanan A" />
         </div>
 
-        {/* HERO CONTENT - SECOND */}
         <div className="hero-content">
 
-          <p className="intro">
-            HELLO, I'M
-          </p>
+          <p className="intro">HELLO, I'M</p>
 
-          <h1>
-            A SARAVANAN
-          </h1>
+          <h1>A SARAVANAN </h1>
 
-          <h2>
-            Full Stack Developer
-          </h2>
+          <h2>Full Stack Developer</h2>
 
           <p className="about">
-            Third year B.Tech Artificial Intelligence and Data Science
-            student passionate about Full Stack Development and Artificial
-            Intelligence. I enjoy building creative and practical solutions
-            using modern technologies and continuously improving my
-            technical skills.
+            Third year B.Tech Artificial Intelligence
+            and Data Science student passionate about Full Stack Development
+            and Artificial Intelligence. I enjoy building creative and
+            practical solutions using modern technologies and continuously
+            improving my technical skills.
           </p>
 
           <div className="hero-buttons">
 
-            <a
-              href="#projects"
-              className="project-btn"
-            >
+            <a href="#projects" className="project-btn">
               View My Projects
             </a>
 
-            <a
-              href="/resume.pdf"
-              className="outline-btn"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
+            <a href={resume} download="Saravanan_A_Resume.pdf" className="outline-btn">
               Download Resume
             </a>
 
-            <a
-              href="#contact"
-              className="outline-btn"
-            >
+            <a href="#contact" className="outline-btn">
               Contact Me
             </a>
 
           </div>
 
         </div>
-
       </section>
 
 
