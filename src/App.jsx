@@ -67,7 +67,7 @@ function App() {
 
           <h1>A SARAVANAN </h1>
 
-          <h2>Aspiring Full Stack Developer</h2>
+          <h2>AspiringFull Stack Developer</h2>
 
           <p className="about">
             Third year B.Tech Artificial Intelligence
