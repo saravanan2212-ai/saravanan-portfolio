@@ -162,49 +162,92 @@ function App() {
     {
       image: "Certificate1.jpg",
       title: "Bootcamp On Cloud Computing",
+      organization: "Cloud Computing",
+      date: "2025",
+      credentialId: "CC-001",
+      verifyLink: "#",
     },
     {
       image: "Certificate2.jpg",
       title: "Cloud Computing AWS",
+      organization: "AWS",
+      date: "2025",
+      credentialId: "AWS-002",
+      verifyLink: "#",
     },
     {
       image: "Certificate3.jpg",
       title: "Full Stack Developer Internship",
+      organization: "Full Stack Development",
+      date: "2025",
+      credentialId: "FSD-003",
+      verifyLink: "#",
     },
     {
       image: "Certificate4.jpg",
       title: "Java Programming",
+      organization: "Java Programming",
+      date: "2025",
+      credentialId: "JAVA-004",
+      verifyLink: "#",
     },
     {
       image: "Certificate5.jpg",
       title: "Python Programming",
+      organization: "Python Programming",
+      date: "2025",
+      credentialId: "PY-005",
+      verifyLink: "#",
     },
     {
       image: "Certificate6.jpg",
       title: "Cloud Computing Intern",
+      organization: "Cloud Computing",
+      date: "2025",
+      credentialId: "CLOUD-006",
+      verifyLink: "#",
     },
     {
       image: "Certificate7.jpg",
       title: "Full Stack Developer Intern",
+      organization: "Full Stack Development",
+      date: "2025",
+      credentialId: "FSD-007",
+      verifyLink: "#",
     },
     {
       image: "Certificate8.jpg",
       title: "Python Developer Intern",
+      organization: "Python Development",
+      date: "2025",
+      credentialId: "PY-008",
+      verifyLink: "#",
     },
     {
       image: "Certificate9.jpg",
       title: "Java Developer Intern",
+      organization: "Java Development",
+      date: "2025",
+      credentialId: "JAVA-009",
+      verifyLink: "#",
     },
     {
       image: "Certificate10.jpg",
       title: "Python Programming",
+      organization: "Python Programming",
+      date: "2025",
+      credentialId: "PY-010",
+      verifyLink: "#",
     },
     {
       image: "Certificate11.jpg",
       title: "Build Your Own Responsive Website",
+      organization: "Web Development",
+      date: "2025",
+      credentialId: "WEB-011",
+      verifyLink: "#",
     },
   ];
-
   /* ================= EXPERIENCE ================= */
 
   const experiences = [
@@ -706,6 +749,11 @@ function App() {
                 {certificate.title}
               </h3>
 
+              <span className="certificate-view">
+                Click to View →
+              </span>
+
+
             </div>
           ))}
 
@@ -1091,6 +1139,8 @@ function App() {
             onClick={(e) => e.stopPropagation()}
           >
 
+            {/* CLOSE BUTTON */}
+
             <button
               className="certificate-modal-close"
               onClick={() => setSelectedCertificate(null)}
@@ -1099,7 +1149,11 @@ function App() {
               ✕
             </button>
 
+
+            {/* CERTIFICATE IMAGE */}
+
             <div className="certificate-modal-image">
+
               <img
                 src={
                   new URL(
@@ -1109,7 +1163,11 @@ function App() {
                 }
                 alt={selectedCertificate.title}
               />
+
             </div>
+
+
+            {/* CERTIFICATE DETAILS */}
 
             <div className="certificate-modal-content">
 
@@ -1121,12 +1179,113 @@ function App() {
                 {selectedCertificate.title}
               </h2>
 
-              <button
-                className="certificate-close-btn"
-                onClick={() => setSelectedCertificate(null)}
-              >
-                Close
-              </button>
+
+              <div className="certificate-details">
+
+
+                {/* ORGANIZATION */}
+
+                <div className="certificate-detail-item">
+
+                  <span className="detail-icon">
+                    🏢
+                  </span>
+
+                  <div>
+                    <small>
+                      Issuing Organization
+                    </small>
+
+                    <strong>
+                      {selectedCertificate.organization}
+                    </strong>
+                  </div>
+
+                </div>
+
+
+                {/* DATE */}
+
+                <div className="certificate-detail-item">
+
+                  <span className="detail-icon">
+                    📅
+                  </span>
+
+                  <div>
+                    <small>
+                      Date
+                    </small>
+
+                    <strong>
+                      {selectedCertificate.date}
+                    </strong>
+                  </div>
+
+                </div>
+
+
+                {/* CREDENTIAL ID */}
+
+                <div className="certificate-detail-item">
+
+                  <span className="detail-icon">
+                    🆔
+                  </span>
+
+                  <div>
+                    <small>
+                      Credential ID
+                    </small>
+
+                    <strong>
+                      {selectedCertificate.credentialId}
+                    </strong>
+                  </div>
+
+                </div>
+
+              </div>
+
+
+              {/* BUTTONS */}
+
+              <div className="certificate-modal-buttons">
+
+                {selectedCertificate.verifyLink !== "#" ? (
+
+                  <a
+                    href={selectedCertificate.verifyLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="certificate-verify-btn"
+                  >
+                    View Certificate ↗
+                  </a>
+
+                ) : (
+
+                  <button
+                    className="certificate-verify-btn disabled"
+                    type="button"
+                    onClick={() =>
+                      alert("Certificate verification link not added yet.")
+                    }
+                  >
+                    View Certificate ↗
+                  </button>
+
+                )}
+
+
+                <button
+                  className="certificate-close-btn"
+                  onClick={() => setSelectedCertificate(null)}
+                >
+                  Close
+                </button>
+
+              </div>
 
             </div>
 
@@ -1134,7 +1293,6 @@ function App() {
 
         </div>
       )}
-
 
       {/* ================= BACK TO TOP ================= */}
 
