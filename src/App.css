@@ -2987,46 +2987,50 @@ section h2 span {
    PROFILE MUSIC PLAYER
 ========================================================= */
 
+/* =========================================================
+   FIXED MUSIC PLAYER
+========================================================= */
+
 .music-player {
   position: fixed;
 
-  right: 28px;
-  bottom: 28px;
+  left: 25px;
+  bottom: 25px;
 
-  z-index: 998;
+  z-index: 9999;
 
   display: flex;
   align-items: center;
-
   gap: 12px;
 
-  padding: 10px 14px 10px 10px;
+  padding: 10px 15px 10px 10px;
 
-  border: 1px solid rgba(6, 182, 212, 0.25);
+  border: 1px solid rgba(6, 182, 212, 0.3);
   border-radius: 14px;
 
-  background: rgba(5, 8, 22, 0.9);
+  background: rgba(5, 8, 22, 0.92);
 
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
 
   box-shadow:
-    0 10px 30px rgba(0, 0, 0, 0.3);
+    0 10px 30px rgba(0, 0, 0, 0.35);
 
-  transition: 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 .music-player:hover {
-  border-color: rgba(6, 182, 212, 0.55);
-
   transform: translateY(-3px);
+
+  border-color: rgba(6, 182, 212, 0.6);
 }
+
+
+/* PLAY BUTTON */
 
 .music-btn {
   width: 42px;
   height: 42px;
-
-  flex-shrink: 0;
 
   border: none;
   border-radius: 50%;
@@ -3035,53 +3039,58 @@ section h2 span {
       #2563eb,
       #0891b2);
 
-  color: #ffffff;
-
-  font-size: 0.85rem;
-  font-weight: 700;
+  color: white;
 
   cursor: pointer;
+
+  font-size: 14px;
+  font-weight: 700;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   transition: 0.3s ease;
 }
 
 .music-btn:hover {
   transform: scale(1.08);
-
-  box-shadow:
-    0 8px 20px rgba(37, 99, 235, 0.35);
 }
+
+
+/* SONG INFO */
 
 .music-info {
   display: flex;
   align-items: center;
-
   gap: 8px;
-}
-
-.music-info>span {
-  font-size: 1rem;
 }
 
 .music-info div {
   display: flex;
   flex-direction: column;
-
-  min-width: 115px;
 }
 
 .music-info strong {
   color: #ffffff;
-
-  font-size: 0.78rem;
+  font-size: 12px;
 }
 
 .music-info small {
-  margin-top: 2px;
-
   color: #64748b;
+  font-size: 10px;
+}
 
-  font-size: 0.68rem;
+
+/* MOBILE */
+
+@media (max-width: 768px) {
+
+  .music-player {
+    left: 15px;
+    bottom: 15px;
+  }
+
 }
 
 
