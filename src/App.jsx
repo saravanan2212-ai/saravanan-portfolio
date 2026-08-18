@@ -1,5 +1,6 @@
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import "./App.css";
+
 import profile from "./profile.jpg";
 import resume from "./assets/Saravanan_A_Resume.pdf";
 import song from "./assets/profile-song.mp3";
@@ -15,10 +16,11 @@ function App() {
   /* ================= SCROLL REVEAL ================= */
 
   useEffect(() => {
-    const elements = document.querySelectorAll(".reveal");
-
     const handleScroll = () => {
       setShowTop(window.scrollY > 500);
+
+      const elements = document.querySelectorAll(".reveal");
+
       elements.forEach((element) => {
         const position = element.getBoundingClientRect().top;
 
@@ -29,13 +31,249 @@ function App() {
     };
 
     window.addEventListener("scroll", handleScroll);
-
     handleScroll();
 
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
+
+  /* ================= MUSIC ================= */
+
+  const toggleMusic = async () => {
+    const audio = document.getElementById("profile-song");
+
+    if (!audio) return;
+
+    try {
+      if (audio.paused) {
+        await audio.play();
+        setIsPlaying(true);
+      } else {
+        audio.pause();
+        setIsPlaying(false);
+      }
+    } catch (error) {
+      console.error("Audio playback failed:", error);
+    }
+  };
+
+  /* ================= PROJECT DATA ================= */
+
+  const projects = [
+    {
+      number: "01",
+      title: "Smart Queue Management System",
+      description:
+        "An intelligent queue management solution designed to reduce waiting time and improve patient flow in government hospitals.",
+      technologies: ["AI", "Python", "React"],
+      features: [
+        "Digital queue management",
+        "Reduced patient waiting time",
+        "Improved patient flow",
+        "Real-time queue monitoring",
+      ],
+    },
+    {
+      number: "02",
+      title: "SkillSphere AI",
+      description:
+        "An AI-powered platform that brings internships, jobs, hackathons, events, career guidance and opportunities together in one place.",
+      technologies: ["AI", "React", "Node.js"],
+      features: [
+        "Internship opportunities",
+        "Job alerts",
+        "Hackathon discovery",
+        "AI career guidance",
+      ],
+    },
+    {
+      number: "03",
+      title: "AI Inventory & Demand Prediction",
+      description:
+        "A smart inventory system that predicts product demand, provides low-stock alerts and helps businesses make better purchasing decisions.",
+      technologies: ["Python", "Machine Learning", "MySQL"],
+      features: [
+        "Demand prediction",
+        "Low-stock alerts",
+        "Inventory monitoring",
+        "Purchase recommendations",
+      ],
+    },
+    {
+      number: "04",
+      title: "AI MSME Growth Advisor",
+      description:
+        "An AI-based business assistant designed to help MSMEs with sales prediction, cash-flow insights, marketing and business decisions.",
+      technologies: ["AI", "Python", "Cloud"],
+      features: [
+        "Sales prediction",
+        "Cash-flow insights",
+        "Marketing suggestions",
+        "Business recommendations",
+      ],
+    },
+  ];
+
+  /* ================= SKILLS ================= */
+
+  const skills = [
+    {
+      name: "Python",
+      percentage: "90%",
+      className: "python",
+      description: "AI, Machine Learning & Backend Development",
+    },
+    {
+      name: "React",
+      percentage: "85%",
+      className: "react",
+      description: "Frontend & Responsive Web Development",
+    },
+    {
+      name: "Java",
+      percentage: "80%",
+      className: "java",
+      description: "Programming & Application Development",
+    },
+    {
+      name: "SQL",
+      percentage: "85%",
+      className: "sql",
+      description: "Database Management & Queries",
+    },
+    {
+      name: "Node.js",
+      percentage: "75%",
+      className: "node",
+      description: "Backend Development & APIs",
+    },
+    {
+      name: "AWS",
+      percentage: "70%",
+      className: "aws",
+      description: "Cloud Computing & Deployment",
+    },
+  ];
+
+  /* ================= CERTIFICATES ================= */
+
+  const certificates = [
+    {
+      image: "Certificate1.jpg",
+      title: "Bootcamp On Cloud Computing",
+    },
+    {
+      image: "Certificate2.jpg",
+      title: "Cloud Computing AWS",
+    },
+    {
+      image: "Certificate3.jpg",
+      title: "Full Stack Developer Internship",
+    },
+    {
+      image: "Certificate4.jpg",
+      title: "Java Programming",
+    },
+    {
+      image: "Certificate5.jpg",
+      title: "Python Programming",
+    },
+    {
+      image: "Certificate6.jpg",
+      title: "Cloud Computing Intern",
+    },
+    {
+      image: "Certificate7.jpg",
+      title: "Full Stack Developer Intern",
+    },
+    {
+      image: "Certificate8.jpg",
+      title: "Python Developer Intern",
+    },
+    {
+      image: "Certificate9.jpg",
+      title: "Java Developer Intern",
+    },
+    {
+      image: "Certificate10.jpg",
+      title: "Python Programming",
+    },
+    {
+      image: "Certificate11.jpg",
+      title: "Build Your Own Responsive Website",
+    },
+  ];
+
+  /* ================= EXPERIENCE ================= */
+
+  const experiences = [
+    {
+      number: "01",
+      title: "Full Stack Developer Intern",
+      subtitle: "Full Stack Development",
+      date: "Internship",
+      description:
+        "Worked on frontend and backend development while gaining practical experience in building responsive web applications, APIs and database-driven solutions.",
+      technologies: ["React", "Node.js", "JavaScript", "SQL"],
+    },
+    {
+      number: "02",
+      title: "Python Developer Intern",
+      subtitle: "Python Development",
+      date: "Internship",
+      description:
+        "Developed Python-based solutions and strengthened programming, problem-solving and application development skills through practical tasks and projects.",
+      technologies: ["Python", "Programming", "Problem Solving"],
+    },
+    {
+      number: "03",
+      title: "Java Developer Intern",
+      subtitle: "Java Programming",
+      date: "Internship",
+      description:
+        "Gained hands-on experience in Java programming, object-oriented concepts and application development while working on practical development tasks.",
+      technologies: ["Java", "OOP", "Application Development"],
+    },
+    {
+      number: "04",
+      title: "Cloud Computing Intern",
+      subtitle: "AWS & Cloud Technologies",
+      date: "Internship",
+      description:
+        "Explored cloud computing concepts and gained practical exposure to cloud services, deployment concepts and AWS technologies.",
+      technologies: ["AWS", "Cloud", "Deployment"],
+    },
+  ];
+
+  /* ================= CONTACT FORM ================= */
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    const form = e.target;
+    const data = new FormData(form);
+
+    try {
+      const response = await fetch("https://formspree.io/f/mppajawa", {
+        method: "POST",
+        body: data,
+        headers: {
+          Accept: "application/json",
+        },
+      });
+
+      if (response.ok) {
+        form.reset();
+        setSubmitted(true);
+      } else {
+        alert("Something went wrong. Please try again.");
+      }
+    } catch (error) {
+      console.error(error);
+      alert("Unable to send message. Please check your internet connection.");
+    }
+  };
 
   return (
     <main className="profile-page">
@@ -87,6 +325,7 @@ function App() {
         <button
           className="menu-btn"
           onClick={() => setMenuOpen(!menuOpen)}
+          aria-label="Toggle navigation menu"
         >
           ☰
         </button>
@@ -117,11 +356,11 @@ function App() {
           </h2>
 
           <p className="about">
-            Third year B.Tech Artificial Intelligence
-            and Data Science student passionate about Full Stack Development
-            and Artificial Intelligence. I enjoy building creative and
-            practical solutions using modern technologies and continuously
-            improving my technical skills.
+            Final year B.Tech Artificial Intelligence and Data Science
+            student passionate about Full Stack Development and Artificial
+            Intelligence. I enjoy building creative and practical solutions
+            using modern technologies and continuously improving my technical
+            skills.
           </p>
 
           <div className="hero-buttons">
@@ -181,10 +420,18 @@ function App() {
         </p>
 
       </section>
-      {/* ================= EDUCATION ================= */}
-      <section className="education-section reveal" id="education">
 
-        <p className="section-label">MY JOURNEY</p>
+
+      {/* ================= EDUCATION ================= */}
+
+      <section
+        className="education-section reveal"
+        id="education"
+      >
+
+        <p className="section-label">
+          MY JOURNEY
+        </p>
 
         <h2>
           Education & <span>Experience</span>
@@ -192,7 +439,6 @@ function App() {
 
         <div className="timeline">
 
-          {/* Education */}
           <div className="timeline-item">
 
             <div className="timeline-dot"></div>
@@ -203,9 +449,13 @@ function App() {
                 2024 - 2028
               </span>
 
-              <h3>B.Tech Artificial Intelligence & Data Science</h3>
+              <h3>
+                B.Tech Artificial Intelligence & Data Science
+              </h3>
 
-              <h4>Kings Engineering College</h4>
+              <h4>
+                Kings Engineering College
+              </h4>
 
               <p>
                 Currently pursuing B.Tech in Artificial Intelligence and
@@ -218,7 +468,6 @@ function App() {
           </div>
 
 
-          {/* Experience */}
           <div className="timeline-item">
 
             <div className="timeline-dot"></div>
@@ -229,9 +478,13 @@ function App() {
                 Internship
               </span>
 
-              <h3>Full Stack Developer Intern</h3>
+              <h3>
+                Full Stack Developer Intern
+              </h3>
 
-              <h4>Internship Experience</h4>
+              <h4>
+                Internship Experience
+              </h4>
 
               <p>
                 Gained practical experience in frontend and backend development,
@@ -244,7 +497,6 @@ function App() {
           </div>
 
 
-          {/* Certifications */}
           <div className="timeline-item">
 
             <div className="timeline-dot"></div>
@@ -255,13 +507,17 @@ function App() {
                 Continuous Learning
               </span>
 
-              <h3>Technical Certifications</h3>
+              <h3>
+                Technical Certifications
+              </h3>
 
-              <h4>AI • Cloud • Programming • Full Stack</h4>
+              <h4>
+                AI • Cloud • Programming • Full Stack
+              </h4>
 
               <p>
-                Continuously improving technical knowledge through certifications,
-                internships, workshops and hands-on projects.
+                Continuously improving technical knowledge through
+                certifications, internships, workshops and hands-on projects.
               </p>
 
             </div>
@@ -275,101 +531,66 @@ function App() {
 
       {/* ================= SKILLS ================= */}
 
-      <div className="skills-grid">
+      <section
+        className="skills-section reveal"
+        id="skills"
+      >
 
-        <div className="skill-card">
-          <div className="skill-header">
-            <h3>Python</h3>
-            <span>90%</span>
-          </div>
+        <p className="section-label">
+          MY SKILLS
+        </p>
 
-          <div className="skill-bar">
-            <div className="skill-progress python"></div>
-          </div>
+        <h2>
+          Technical <span>Skills</span>
+        </h2>
 
-          <p>AI, Machine Learning & Backend Development</p>
+        <div className="skills-grid">
+
+          {skills.map((skill) => (
+            <div
+              className="skill-card"
+              key={skill.name}
+            >
+
+              <div className="skill-header">
+
+                <h3>
+                  {skill.name}
+                </h3>
+
+                <span>
+                  {skill.percentage}
+                </span>
+
+              </div>
+
+              <div className="skill-bar">
+
+                <div
+                  className={`skill-progress ${skill.className}`}
+                ></div>
+
+              </div>
+
+              <p>
+                {skill.description}
+              </p>
+
+            </div>
+          ))}
+
         </div>
 
-
-        <div className="skill-card">
-          <div className="skill-header">
-            <h3>React</h3>
-            <span>85%</span>
-          </div>
-
-          <div className="skill-bar">
-            <div className="skill-progress react"></div>
-          </div>
-
-          <p>Frontend & Responsive Web Development</p>
-        </div>
+      </section>
 
 
-        <div className="skill-card">
-          <div className="skill-header">
-            <h3>Java</h3>
-            <span>80%</span>
-          </div>
-
-          <div className="skill-bar">
-            <div className="skill-progress java"></div>
-          </div>
-
-          <p>Programming & Application Development</p>
-        </div>
-
-
-        <div className="skill-card">
-          <div className="skill-header">
-            <h3>SQL</h3>
-            <span>85%</span>
-          </div>
-
-          <div className="skill-bar">
-            <div className="skill-progress sql"></div>
-          </div>
-
-          <p>Database Management & Queries</p>
-        </div>
-
-
-        <div className="skill-card">
-          <div className="skill-header">
-            <h3>Node.js</h3>
-            <span>75%</span>
-          </div>
-
-          <div className="skill-bar">
-            <div className="skill-progress node"></div>
-          </div>
-
-          <p>Backend Development & APIs</p>
-        </div>
-
-
-        <div className="skill-card">
-          <div className="skill-header">
-            <h3>AWS</h3>
-            <span>70%</span>
-          </div>
-
-          <div className="skill-bar">
-            <div className="skill-progress aws"></div>
-          </div>
-
-          <p>Cloud Computing & Deployment</p>
-        </div>
-
-      </div>
-
-
-      {/* ================= PROJECTS ================= */}
       {/* ================= PROJECTS ================= */}
 
       <section
         className="projects-section reveal"
         id="projects"
       >
+
         <p className="section-label">
           MY WORK
         </p>
@@ -380,287 +601,71 @@ function App() {
 
         <div className="projects-grid">
 
-          {/* ================= PROJECT 01 ================= */}
+          {projects.map((project) => (
+            <div
+              className="project-wrapper"
+              key={project.number}
+            >
 
-          <div className="project-wrapper">
+              <div className="project-card">
 
-            <div className="project-card">
+                <div className="project-number">
+                  {project.number}
+                </div>
 
-              <div className="project-number">
-                01
+                <h3>
+                  {project.title}
+                </h3>
+
+                <p>
+                  {project.description}
+                </p>
+
+                <div className="project-tech">
+
+                  {project.technologies.map((tech) => (
+                    <span key={tech}>
+                      {tech}
+                    </span>
+                  ))}
+
+                </div>
+
+                <div className="project-links">
+
+                  <a
+                    href="https://github.com/saravanan2212-ai"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    GitHub ↗
+                  </a>
+
+                  <a
+                    href="#"
+                    onClick={(e) => e.preventDefault()}
+                  >
+                    Live Demo ↗
+                  </a>
+
+                </div>
+
               </div>
 
-              <h3>
-                Smart Queue Management System
-              </h3>
-
-              <p>
-                An intelligent queue management solution designed to reduce
-                waiting time and improve patient flow in government hospitals.
-              </p>
-
-              <div className="project-tech">
-                <span>AI</span>
-                <span>Python</span>
-                <span>React</span>
-              </div>
-
-              <div className="project-links">
-
-                <a
-                  href="https://github.com/saravanan2212-ai"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  GitHub ↗
-                </a>
-
-                <a
-                  href="#"
-                  onClick={(e) => e.preventDefault()}
-                >
-                  Live Demo ↗
-                </a>
-
-              </div>
+              <button
+                className="project-details-btn"
+                onClick={() => setSelectedProject(project)}
+              >
+                View Details →
+              </button>
 
             </div>
-
-            <button
-              className="project-details-btn"
-              onClick={() =>
-                setSelectedProject({
-                  title: "Smart Queue Management System",
-                  description:
-                    "An intelligent queue management solution designed to reduce waiting time and improve patient flow in government hospitals.",
-                  features: [
-                    "Digital queue management",
-                    "Reduced patient waiting time",
-                    "Improved patient flow",
-                    "Real-time queue monitoring",
-                  ],
-                  technologies: ["AI", "Python", "React"],
-                })
-              }
-            >
-              View Details →
-            </button>
-
-          </div>
-
-
-          {/* ================= PROJECT 02 ================= */}
-
-          <div className="project-wrapper">
-
-            <div className="project-card">
-
-              <div className="project-number">
-                02
-              </div>
-
-              <h3>
-                SkillSphere AI
-              </h3>
-
-              <p>
-                An AI-powered platform that brings internships, jobs,
-                hackathons, events, career guidance and opportunities
-                together in one place.
-              </p>
-
-              <div className="project-tech">
-                <span>AI</span>
-                <span>React</span>
-                <span>Node.js</span>
-              </div>
-
-              <div className="project-links">
-
-                <a
-                  href="https://github.com/saravanan2212-ai"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  GitHub ↗
-                </a>
-
-                <a
-                  href="#"
-                  onClick={(e) => e.preventDefault()}
-                >
-                  Live Demo ↗
-                </a>
-
-              </div>
-
-            </div>
-
-            <button
-              className="project-details-btn"
-              onClick={() =>
-                setSelectedProject({
-                  title: "SkillSphere AI",
-                  description:
-                    "An AI-powered platform that brings internships, jobs, hackathons, events and career opportunities together in one place.",
-                  features: [
-                    "Internship opportunities",
-                    "Job alerts",
-                    "Hackathon discovery",
-                    "AI career guidance",
-                  ],
-                  technologies: ["AI", "React", "Node.js"],
-                })
-              }
-            >
-              View Details →
-            </button>
-
-          </div>
-
-
-          {/* ================= PROJECT 03 ================= */}
-
-          <div className="project-wrapper">
-
-            <div className="project-card">
-
-              <div className="project-number">
-                03
-              </div>
-
-              <h3>
-                AI Inventory & Demand Prediction
-              </h3>
-
-              <p>
-                A smart inventory system that predicts product demand,
-                provides low-stock alerts and helps businesses make better
-                purchasing decisions.
-              </p>
-
-              <div className="project-tech">
-                <span>Python</span>
-                <span>ML</span>
-                <span>MySQL</span>
-              </div>
-
-              <div className="project-links">
-
-                <a
-                  href="https://github.com/saravanan2212-ai"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  GitHub ↗
-                </a>
-
-                <a
-                  href="#"
-                  onClick={(e) => e.preventDefault()}
-                >
-                  Live Demo ↗
-                </a>
-
-              </div>
-
-            </div>
-
-            <button
-              className="project-details-btn"
-              onClick={() =>
-                setSelectedProject({
-                  title: "AI Inventory & Demand Prediction",
-                  description:
-                    "A smart inventory system that predicts product demand and helps businesses make better purchasing decisions.",
-                  features: [
-                    "Demand prediction",
-                    "Low-stock alerts",
-                    "Inventory monitoring",
-                    "Purchase recommendations",
-                  ],
-                  technologies: ["Python", "Machine Learning", "MySQL"],
-                })
-              }
-            >
-              View Details →
-            </button>
-
-          </div>
-
-
-          {/* ================= PROJECT 04 ================= */}
-
-          <div className="project-wrapper">
-
-            <div className="project-card">
-
-              <div className="project-number">
-                04
-              </div>
-
-              <h3>
-                AI MSME Growth Advisor
-              </h3>
-
-              <p>
-                An AI-based business assistant designed to help MSMEs with
-                sales prediction, cash-flow insights, marketing and business
-                decisions.
-              </p>
-
-              <div className="project-tech">
-                <span>AI</span>
-                <span>Python</span>
-                <span>Cloud</span>
-              </div>
-
-              <div className="project-links">
-
-                <a
-                  href="https://github.com/saravanan2212-ai"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  GitHub ↗
-                </a>
-
-                <a
-                  href="#"
-                  onClick={(e) => e.preventDefault()}
-                >
-                  Live Demo ↗
-                </a>
-
-              </div>
-
-            </div>
-
-            <button
-              className="project-details-btn"
-              onClick={() =>
-                setSelectedProject({
-                  title: "AI MSME Growth Advisor",
-                  description:
-                    "An AI-based business assistant designed to help MSMEs with sales prediction, cash-flow insights and business decisions.",
-                  features: [
-                    "Sales prediction",
-                    "Cash-flow insights",
-                    "Marketing suggestions",
-                    "Business recommendations",
-                  ],
-                  technologies: ["AI", "Python", "Cloud"],
-                })
-              }
-            >
-              View Details →
-            </button>
-
-          </div>
+          ))}
 
         </div>
 
       </section>
+
 
       {/* ================= CERTIFICATES ================= */}
 
@@ -674,165 +679,51 @@ function App() {
         </p>
 
         <h2>
-          Learning &{" "}
-          <span>
-            Achievements
-          </span>
+          Learning & <span>Achievements</span>
         </h2>
 
         <div className="certificates-grid">
 
-          <div className="certificate-card">
-            <img
-              src={new URL(
-                "./assets/Certificate1.jpg",
-                import.meta.url
-              ).href}
-              alt="Bootcamp On Cloud Computing"
-            />
-            <h3>
-              Bootcamp On Cloud Computing
-            </h3>
-          </div>
+          {certificates.map((certificate, index) => (
+            <div
+              className="certificate-card"
+              key={certificate.image}
+              onClick={() => setSelectedCertificate(certificate)}
+            >
 
-          <div className="certificate-card">
-            <img
-              src={new URL(
-                "./assets/Certificate2.jpg",
-                import.meta.url
-              ).href}
-              alt="Cloud Computing AWS"
-            />
-            <h3>
-              Cloud Computing AWS
-            </h3>
-          </div>
+              <img
+                src={
+                  new URL(
+                    `./assets/${certificate.image}`,
+                    import.meta.url
+                  ).href
+                }
+                alt={certificate.title}
+                loading="lazy"
+              />
 
-          <div className="certificate-card">
-            <img
-              src={new URL(
-                "./assets/Certificate3.jpg",
-                import.meta.url
-              ).href}
-              alt="Full Stack Developer Internship"
-            />
-            <h3>
-              Full Stack Developer Internship
-            </h3>
-          </div>
+              <h3>
+                {certificate.title}
+              </h3>
 
-          <div className="certificate-card">
-            <img
-              src={new URL(
-                "./assets/Certificate4.jpg",
-                import.meta.url
-              ).href}
-              alt="Java Programming"
-            />
-            <h3>
-              Java Programming
-            </h3>
-          </div>
-
-          <div className="certificate-card">
-            <img
-              src={new URL(
-                "./assets/Certificate5.jpg",
-                import.meta.url
-              ).href}
-              alt="Python Programming"
-            />
-            <h3>
-              Python Programming
-            </h3>
-          </div>
-
-          <div className="certificate-card">
-            <img
-              src={new URL(
-                "./assets/Certificate6.jpg",
-                import.meta.url
-              ).href}
-              alt="Cloud Computing Intern"
-            />
-            <h3>
-              Cloud Computing Intern
-            </h3>
-          </div>
-
-          <div className="certificate-card">
-            <img
-              src={new URL(
-                "./assets/Certificate7.jpg",
-                import.meta.url
-              ).href}
-              alt="Full Stack Developer Intern"
-            />
-            <h3>
-              Full Stack Developer Intern
-            </h3>
-          </div>
-
-          <div className="certificate-card">
-            <img
-              src={new URL(
-                "./assets/Certificate8.jpg",
-                import.meta.url
-              ).href}
-              alt="Python Developer Intern"
-            />
-            <h3>
-              Python Developer Intern
-            </h3>
-          </div>
-
-          <div className="certificate-card">
-            <img
-              src={new URL(
-                "./assets/Certificate9.jpg",
-                import.meta.url
-              ).href}
-              alt="Java Developer Intern"
-            />
-            <h3>
-              Java Developer Intern
-            </h3>
-          </div>
-
-          <div className="certificate-card">
-            <img
-              src={new URL(
-                "./assets/Certificate10.jpg",
-                import.meta.url
-              ).href}
-              alt="Python Programming"
-            />
-            <h3>
-              Python Programming
-            </h3>
-          </div>
-
-          <div className="certificate-card">
-            <img
-              src={new URL(
-                "./assets/Certificate11.jpg",
-                import.meta.url
-              ).href}
-              alt="Build Your Own Responsive Website"
-            />
-            <h3>
-              Build Your Own Responsive Website
-            </h3>
-          </div>
+            </div>
+          ))}
 
         </div>
 
       </section>
 
-      {/* ================= EXPERIENCE ================= */}
-      <section className="experience-section reveal" id="experience">
 
-        <p className="section-label">MY EXPERIENCE</p>
+      {/* ================= EXPERIENCE ================= */}
+
+      <section
+        className="experience-section reveal"
+        id="experience"
+      >
+
+        <p className="section-label">
+          MY EXPERIENCE
+        </p>
 
         <h2>
           Internship & <span>Experience</span>
@@ -845,152 +736,58 @@ function App() {
 
         <div className="experience-timeline">
 
-          {/* EXPERIENCE 01 */}
-          <div className="experience-item">
+          {experiences.map((experience) => (
+            <div
+              className="experience-item"
+              key={experience.number}
+            >
 
-            <div className="experience-dot"></div>
+              <div className="experience-dot"></div>
 
-            <div className="experience-card">
+              <div className="experience-card">
 
-              <div className="experience-top">
-                <div>
-                  <span className="experience-number">01</span>
+                <div className="experience-top">
 
-                  <h3>Full Stack Developer Intern</h3>
+                  <div>
 
-                  <h4>Full Stack Development</h4>
+                    <span className="experience-number">
+                      {experience.number}
+                    </span>
+
+                    <h3>
+                      {experience.title}
+                    </h3>
+
+                    <h4>
+                      {experience.subtitle}
+                    </h4>
+
+                  </div>
+
+                  <span className="experience-date">
+                    {experience.date}
+                  </span>
+
                 </div>
 
-                <span className="experience-date">
-                  Internship
-                </span>
-              </div>
+                <p>
+                  {experience.description}
+                </p>
 
-              <p>
-                Worked on frontend and backend development while gaining
-                practical experience in building responsive web applications,
-                APIs and database-driven solutions.
-              </p>
+                <div className="experience-tech">
 
-              <div className="experience-tech">
-                <span>React</span>
-                <span>Node.js</span>
-                <span>JavaScript</span>
-                <span>SQL</span>
+                  {experience.technologies.map((tech) => (
+                    <span key={tech}>
+                      {tech}
+                    </span>
+                  ))}
+
+                </div>
+
               </div>
 
             </div>
-          </div>
-
-
-          {/* EXPERIENCE 02 */}
-          <div className="experience-item">
-
-            <div className="experience-dot"></div>
-
-            <div className="experience-card">
-
-              <div className="experience-top">
-                <div>
-                  <span className="experience-number">02</span>
-
-                  <h3>Python Developer Intern</h3>
-
-                  <h4>Python Development</h4>
-                </div>
-
-                <span className="experience-date">
-                  Internship
-                </span>
-              </div>
-
-              <p>
-                Developed Python-based solutions and strengthened programming,
-                problem-solving and application development skills through
-                practical tasks and projects.
-              </p>
-
-              <div className="experience-tech">
-                <span>Python</span>
-                <span>Programming</span>
-                <span>Problem Solving</span>
-              </div>
-
-            </div>
-          </div>
-
-
-          {/* EXPERIENCE 03 */}
-          <div className="experience-item">
-
-            <div className="experience-dot"></div>
-
-            <div className="experience-card">
-
-              <div className="experience-top">
-                <div>
-                  <span className="experience-number">03</span>
-
-                  <h3>Java Developer Intern</h3>
-
-                  <h4>Java Programming</h4>
-                </div>
-
-                <span className="experience-date">
-                  Internship
-                </span>
-              </div>
-
-              <p>
-                Gained hands-on experience in Java programming, object-oriented
-                concepts and application development while working on practical
-                development tasks.
-              </p>
-
-              <div className="experience-tech">
-                <span>Java</span>
-                <span>OOP</span>
-                <span>Application Development</span>
-              </div>
-
-            </div>
-          </div>
-
-
-          {/* EXPERIENCE 04 */}
-          <div className="experience-item">
-
-            <div className="experience-dot"></div>
-
-            <div className="experience-card">
-
-              <div className="experience-top">
-                <div>
-                  <span className="experience-number">04</span>
-
-                  <h3>Cloud Computing Intern</h3>
-
-                  <h4>AWS & Cloud Technologies</h4>
-                </div>
-
-                <span className="experience-date">
-                  Internship
-                </span>
-              </div>
-
-              <p>
-                Explored cloud computing concepts and gained practical exposure
-                to cloud services, deployment concepts and AWS technologies.
-              </p>
-
-              <div className="experience-tech">
-                <span>AWS</span>
-                <span>Cloud</span>
-                <span>Deployment</span>
-              </div>
-
-            </div>
-          </div>
+          ))}
 
         </div>
 
@@ -1009,10 +806,7 @@ function App() {
         </p>
 
         <h2>
-          Let's{" "}
-          <span>
-            Connect
-          </span>
+          Let's <span>Connect</span>
         </h2>
 
         <p className="contact-intro">
@@ -1023,7 +817,7 @@ function App() {
         <div className="contact-container">
 
 
-          {/* ================= CONTACT DETAILS ================= */}
+          {/* CONTACT DETAILS */}
 
           <div className="contact-info">
 
@@ -1065,7 +859,12 @@ function App() {
             </div>
 
 
-            <div className="contact-card">
+            <a
+              href="https://www.instagram.com/mr_fearlez_22/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="contact-card contact-link"
+            >
 
               <div className="contact-icon">
                 📸
@@ -1076,16 +875,12 @@ function App() {
                   Instagram
                 </h3>
 
-                <a
-                  href="https://www.instagram.com/mr_fearlez_22/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
+                <p>
                   @mr_fearlez_22
-                </a>
+                </p>
               </div>
 
-            </div>
+            </a>
 
 
             <a
@@ -1138,7 +933,7 @@ function App() {
           </div>
 
 
-          {/* ================= CONTACT FORM ================= */}
+          {/* CONTACT FORM */}
 
           {submitted ? (
 
@@ -1169,30 +964,7 @@ function App() {
 
             <form
               className="contact-form"
-              onSubmit={async (e) => {
-
-                e.preventDefault();
-
-                const form = e.target;
-                const data = new FormData(form);
-
-                const response = await fetch(
-                  "https://formspree.io/f/mppajawa",
-                  {
-                    method: "POST",
-                    body: data,
-                    headers: {
-                      Accept: "application/json",
-                    },
-                  }
-                );
-
-                if (response.ok) {
-                  form.reset();
-                  setSubmitted(true);
-                }
-
-              }}
+              onSubmit={handleSubmit}
             >
 
               <input
@@ -1235,6 +1007,7 @@ function App() {
 
       </section>
 
+
       {/* ================= PROJECT MODAL ================= */}
 
       {selectedProject && (
@@ -1251,6 +1024,7 @@ function App() {
             <button
               className="modal-close"
               onClick={() => setSelectedProject(null)}
+              aria-label="Close project details"
             >
               ✕
             </button>
@@ -1272,11 +1046,15 @@ function App() {
             </h3>
 
             <ul className="modal-features">
-              {selectedProject.features.map((feature, index) => (
-                <li key={index}>
-                  {feature}
-                </li>
-              ))}
+
+              {selectedProject.features.map(
+                (feature, index) => (
+                  <li key={index}>
+                    {feature}
+                  </li>
+                )
+              )}
+
             </ul>
 
             <h3>
@@ -1284,58 +1062,153 @@ function App() {
             </h3>
 
             <div className="modal-tech">
+
               {selectedProject.technologies.map(
-                (technology, index) => (
-                  <span key={index}>
+                (technology) => (
+                  <span key={technology}>
                     {technology}
                   </span>
                 )
               )}
+
             </div>
 
           </div>
 
         </div>
       )}
+
+      {/* ================= CERTIFICATE MODAL ================= */}
+
+      {selectedCertificate && (
+        <div
+          className="certificate-modal-overlay"
+          onClick={() => setSelectedCertificate(null)}
+        >
+
+          <div
+            className="certificate-modal"
+            onClick={(e) => e.stopPropagation()}
+          >
+
+            <button
+              className="certificate-modal-close"
+              onClick={() => setSelectedCertificate(null)}
+              aria-label="Close certificate"
+            >
+              ✕
+            </button>
+
+            <div className="certificate-modal-image">
+              <img
+                src={
+                  new URL(
+                    `./assets/${selectedCertificate.image}`,
+                    import.meta.url
+                  ).href
+                }
+                alt={selectedCertificate.title}
+              />
+            </div>
+
+            <div className="certificate-modal-content">
+
+              <p className="modal-label">
+                CERTIFICATE
+              </p>
+
+              <h2>
+                {selectedCertificate.title}
+              </h2>
+
+              <button
+                className="certificate-close-btn"
+                onClick={() => setSelectedCertificate(null)}
+              >
+                Close
+              </button>
+
+            </div>
+
+          </div>
+
+        </div>
+      )}
+
+
+      {/* ================= BACK TO TOP ================= */}
+
       {showTop && (
         <button
           className="back-to-top"
-          onClick={() => window.scrollTo({
-            top: 0,
-            behavior: "smooth",
-          })}
+          onClick={() =>
+            window.scrollTo({
+              top: 0,
+              behavior: "smooth",
+            })
+          }
           aria-label="Back to top"
         >
           ↑
         </button>
       )}
+
+
       {/* ================= FOOTER ================= */}
+
       <footer className="footer">
 
         <div className="footer-content">
 
           <div className="footer-brand">
-            <h3>SARAVANAN A</h3>
+
+            <h3>
+              SARAVANAN A
+            </h3>
+
             <p>
-              Aspiring Full Stack Developer passionate about
-              AI, modern web technologies and building useful solutions.
+              Aspiring Full Stack Developer passionate about AI,
+              modern web technologies and building useful solutions.
             </p>
+
           </div>
 
+
           <div className="footer-links">
-            <a href="#home">Home</a>
-            <a href="#about">About</a>
-            <a href="#skills">Skills</a>
-            <a href="#projects">Projects</a>
-            <a href="#contact">Contact</a>
+
+            <a href="#home">
+              Home
+            </a>
+
+            <a href="#about">
+              About
+            </a>
+
+            <a href="#skills">
+              Skills
+            </a>
+
+            <a href="#projects">
+              Projects
+            </a>
+
+            <a href="#contact">
+              Contact
+            </a>
+
           </div>
 
         </div>
 
+
         <div className="footer-bottom">
-          <p>© 2026 Saravanan A. All rights reserved.</p>
+
+          <p>
+            © 2026 Saravanan A. All rights reserved.
+          </p>
 
           <div className="footer-socials">
+
             <a
               href="https://github.com/saravanan2212-ai"
               target="_blank"
@@ -1359,48 +1232,58 @@ function App() {
             >
               Instagram
             </a>
+
           </div>
+
         </div>
 
       </footer>
+
+
       {/* ================= MUSIC PLAYER ================= */}
 
-      <audio id="profile-song" src={song} loop />
+      <audio
+        id="profile-song"
+        src={song}
+        loop
+      />
 
       <div className="music-player">
 
         <button
           className="music-btn"
-          onClick={() => {
-            const audio = document.getElementById("profile-song");
-
-            if (audio.paused) {
-              audio.play();
-              setIsPlaying(true);
-            } else {
-              audio.pause();
-              setIsPlaying(false);
-            }
-          }}
+          onClick={toggleMusic}
+          aria-label="Play or pause profile song"
         >
           {isPlaying ? "❚❚" : "▶"}
         </button>
 
         <div className="music-info">
-          <span>🎵</span>
+
+          <span>
+            🎵
+          </span>
+
           <div>
-            <strong>My Profile Song</strong>
-            <small>{isPlaying ? "Playing..." : "Click to play"}</small>
+
+            <strong>
+              My Profile Song
+            </strong>
+
+            <small>
+              {isPlaying
+                ? "Playing..."
+                : "Click to play"}
+            </small>
+
           </div>
+
         </div>
 
       </div>
-
 
     </main>
   );
 }
 
 export default App;
-
-
