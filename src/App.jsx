@@ -119,42 +119,80 @@ function App() {
 
   /* ================= SKILLS ================= */
 
+  /* ================= SKILLS ================= */
+
   const skills = [
     {
       name: "Python",
       percentage: "90%",
       className: "python",
+      icon: "🐍",
+      category: "Programming",
       description: "AI, Machine Learning & Backend Development",
     },
     {
       name: "React",
       percentage: "85%",
       className: "react",
+      icon: "⚛️",
+      category: "Frontend",
       description: "Frontend & Responsive Web Development",
+    },
+    {
+      name: "JavaScript",
+      percentage: "85%",
+      className: "javascript",
+      icon: "🟨",
+      category: "Frontend",
+      description: "Interactive Web Applications",
     },
     {
       name: "Java",
       percentage: "80%",
       className: "java",
-      description: "Programming & Application Development",
+      icon: "☕",
+      category: "Programming",
+      description: "OOP & Application Development",
     },
     {
       name: "SQL",
       percentage: "85%",
       className: "sql",
+      icon: "🗄️",
+      category: "Database",
       description: "Database Management & Queries",
     },
     {
       name: "Node.js",
       percentage: "75%",
       className: "node",
+      icon: "🟢",
+      category: "Backend",
       description: "Backend Development & APIs",
     },
     {
       name: "AWS",
       percentage: "70%",
       className: "aws",
+      icon: "☁️",
+      category: "Cloud",
       description: "Cloud Computing & Deployment",
+    },
+    {
+      name: "Machine Learning",
+      percentage: "80%",
+      className: "machine-learning",
+      icon: "🤖",
+      category: "AI / ML",
+      description: "Predictive Models & Intelligent Systems",
+    },
+    {
+      name: "Git & GitHub",
+      percentage: "85%",
+      className: "github",
+      icon: "💻",
+      category: "Tools",
+      description: "Version Control & Collaboration",
     },
   ];
 
@@ -576,6 +614,8 @@ function App() {
 
       {/* ================= SKILLS ================= */}
 
+      {/* ================= SKILLS ================= */}
+
       <section
         className="skills-section reveal"
         id="skills"
@@ -589,39 +629,63 @@ function App() {
           Technical <span>Skills</span>
         </h2>
 
+        <p className="skills-intro">
+          Technologies and tools I use to build intelligent,
+          responsive and scalable applications.
+        </p>
+
         <div className="skills-grid">
 
           {skills.map((skill) => (
+
             <div
               className="skill-card"
               key={skill.name}
             >
 
-              <div className="skill-header">
-
-                <h3>
-                  {skill.name}
-                </h3>
-
-                <span>
-                  {skill.percentage}
-                </span>
-
+              <div className="skill-icon">
+                {skill.icon}
               </div>
 
-              <div className="skill-bar">
+              <div className="skill-content">
 
-                <div
-                  className={`skill-progress ${skill.className}`}
-                ></div>
+                <div className="skill-header">
+
+                  <div>
+                    <h3>
+                      {skill.name}
+                    </h3>
+
+                    <span className="skill-category">
+                      {skill.category}
+                    </span>
+                  </div>
+
+                  <span className="skill-percentage">
+                    {skill.percentage}
+                  </span>
+
+                </div>
+
+                <div className="skill-bar">
+
+                  <div
+                    className={`skill-progress ${skill.className}`}
+                    style={{
+                      width: skill.percentage,
+                    }}
+                  ></div>
+
+                </div>
+
+                <p>
+                  {skill.description}
+                </p>
 
               </div>
-
-              <p>
-                {skill.description}
-              </p>
 
             </div>
+
           ))}
 
         </div>
