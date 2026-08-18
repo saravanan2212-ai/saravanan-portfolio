@@ -364,289 +364,303 @@ function App() {
 
 
       {/* ================= PROJECTS ================= */}
+      {/* ================= PROJECTS ================= */}
 
       <section
         className="projects-section reveal"
         id="projects"
       >
-
         <p className="section-label">
           MY WORK
         </p>
 
         <h2>
-          Featured{" "}
-          <span>
-            Projects
-          </span>
+          Featured <span>Projects</span>
         </h2>
 
         <div className="projects-grid">
 
-
           {/* ================= PROJECT 01 ================= */}
 
-          <div className="project-card">
+          <div className="project-wrapper">
 
-            <div className="project-number">
-              01
+            <div className="project-card">
+
+              <div className="project-number">
+                01
+              </div>
+
+              <h3>
+                Smart Queue Management System
+              </h3>
+
+              <p>
+                An intelligent queue management solution designed to reduce
+                waiting time and improve patient flow in government hospitals.
+              </p>
+
+              <div className="project-tech">
+                <span>AI</span>
+                <span>Python</span>
+                <span>React</span>
+              </div>
+
+              <div className="project-links">
+
+                <a
+                  href="https://github.com/saravanan2212-ai"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  GitHub ↗
+                </a>
+
+                <a
+                  href="#"
+                  onClick={(e) => e.preventDefault()}
+                >
+                  Live Demo ↗
+                </a>
+
+              </div>
+
             </div>
 
-            <h3>
-              Smart Queue Management System
-            </h3>
-
-            <p>
-              An intelligent queue management solution designed to reduce
-              waiting time and improve patient flow in government hospitals.
-            </p>
-
-            <div className="project-tech">
-              <span>AI</span>
-              <span>Python</span>
-              <span>React</span>
-            </div>
-
-            <div className="project-links">
-
-              <a
-                href="https://github.com/saravanan2212-ai"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                GitHub ↗
-              </a>
-
-              <a
-                href="#"
-                onClick={(e) => e.preventDefault()}
-              >
-                Live Demo ↗
-              </a>
-
-            </div>
+            <button
+              className="project-details-btn"
+              onClick={() =>
+                setSelectedProject({
+                  title: "Smart Queue Management System",
+                  description:
+                    "An intelligent queue management solution designed to reduce waiting time and improve patient flow in government hospitals.",
+                  features: [
+                    "Digital queue management",
+                    "Reduced patient waiting time",
+                    "Improved patient flow",
+                    "Real-time queue monitoring",
+                  ],
+                  technologies: ["AI", "Python", "React"],
+                })
+              }
+            >
+              View Details →
+            </button>
 
           </div>
-          <button
-            className="project-details-btn"
-            onClick={() =>
-              setSelectedProject({
-                title: "Smart Queue Management System",
-                description:
-                  "An intelligent queue management solution designed to reduce waiting time and improve patient flow in government hospitals.",
-                features: [
-                  "Digital queue management",
-                  "Reduced patient waiting time",
-                  "Improved patient flow",
-                  "Real-time queue monitoring",
-                ],
-                technologies: ["AI", "Python", "React"],
-              })
-            }
-          >
-            View Details →
-          </button>
 
 
           {/* ================= PROJECT 02 ================= */}
 
-          <div className="project-card">
+          <div className="project-wrapper">
 
-            <div className="project-number">
-              02
+            <div className="project-card">
+
+              <div className="project-number">
+                02
+              </div>
+
+              <h3>
+                SkillSphere AI
+              </h3>
+
+              <p>
+                An AI-powered platform that brings internships, jobs,
+                hackathons, events, career guidance and opportunities
+                together in one place.
+              </p>
+
+              <div className="project-tech">
+                <span>AI</span>
+                <span>React</span>
+                <span>Node.js</span>
+              </div>
+
+              <div className="project-links">
+
+                <a
+                  href="https://github.com/saravanan2212-ai"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  GitHub ↗
+                </a>
+
+                <a
+                  href="#"
+                  onClick={(e) => e.preventDefault()}
+                >
+                  Live Demo ↗
+                </a>
+
+              </div>
+
             </div>
 
-            <h3>
-              SkillSphere AI
-            </h3>
-
-            <p>
-              An AI-powered platform that brings internships, jobs,
-              hackathons, events, career guidance and opportunities
-              together in one place.
-            </p>
-
-            <div className="project-tech">
-              <span>AI</span>
-              <span>React</span>
-              <span>Node.js</span>
-            </div>
-
-            <div className="project-links">
-
-              <a
-                href="https://github.com/saravanan2212-ai"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                GitHub ↗
-              </a>
-
-              <a
-                href="#"
-                onClick={(e) => e.preventDefault()}
-              >
-                Live Demo ↗
-              </a>
-
-            </div>
+            <button
+              className="project-details-btn"
+              onClick={() =>
+                setSelectedProject({
+                  title: "SkillSphere AI",
+                  description:
+                    "An AI-powered platform that brings internships, jobs, hackathons, events and career opportunities together in one place.",
+                  features: [
+                    "Internship opportunities",
+                    "Job alerts",
+                    "Hackathon discovery",
+                    "AI career guidance",
+                  ],
+                  technologies: ["AI", "React", "Node.js"],
+                })
+              }
+            >
+              View Details →
+            </button>
 
           </div>
-          <button
-            className="project-details-btn"
-            onClick={() =>
-              setSelectedProject({
-                title: "SkillSphere AI",
-                description:
-                  "An AI-powered platform that brings internships, jobs, hackathons, events and career opportunities together in one place.",
-                features: [
-                  "Internship opportunities",
-                  "Job alerts",
-                  "Hackathon discovery",
-                  "AI career guidance",
-                ],
-                technologies: ["AI", "React", "Node.js"],
-              })
-            }
-          >
-            View Details →
-          </button>
 
 
           {/* ================= PROJECT 03 ================= */}
 
-          <div className="project-card">
+          <div className="project-wrapper">
 
-            <div className="project-number">
-              03
+            <div className="project-card">
+
+              <div className="project-number">
+                03
+              </div>
+
+              <h3>
+                AI Inventory & Demand Prediction
+              </h3>
+
+              <p>
+                A smart inventory system that predicts product demand,
+                provides low-stock alerts and helps businesses make better
+                purchasing decisions.
+              </p>
+
+              <div className="project-tech">
+                <span>Python</span>
+                <span>ML</span>
+                <span>MySQL</span>
+              </div>
+
+              <div className="project-links">
+
+                <a
+                  href="https://github.com/saravanan2212-ai"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  GitHub ↗
+                </a>
+
+                <a
+                  href="#"
+                  onClick={(e) => e.preventDefault()}
+                >
+                  Live Demo ↗
+                </a>
+
+              </div>
+
             </div>
 
-            <h3>
-              AI Inventory & Demand Prediction
-            </h3>
-
-            <p>
-              A smart inventory system that predicts product demand,
-              provides low-stock alerts and helps businesses make better
-              purchasing decisions.
-            </p>
-
-            <div className="project-tech">
-              <span>Python</span>
-              <span>ML</span>
-              <span>MySQL</span>
-            </div>
-
-            <div className="project-links">
-
-              <a
-                href="https://github.com/saravanan2212-ai"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                GitHub ↗
-              </a>
-
-              <a
-                href="#"
-                onClick={(e) => e.preventDefault()}
-              >
-                Live Demo ↗
-              </a>
-
-            </div>
+            <button
+              className="project-details-btn"
+              onClick={() =>
+                setSelectedProject({
+                  title: "AI Inventory & Demand Prediction",
+                  description:
+                    "A smart inventory system that predicts product demand and helps businesses make better purchasing decisions.",
+                  features: [
+                    "Demand prediction",
+                    "Low-stock alerts",
+                    "Inventory monitoring",
+                    "Purchase recommendations",
+                  ],
+                  technologies: ["Python", "Machine Learning", "MySQL"],
+                })
+              }
+            >
+              View Details →
+            </button>
 
           </div>
-          <button
-            className="project-details-btn"
-            onClick={() =>
-              setSelectedProject({
-                title: "AI Inventory & Demand Prediction",
-                description:
-                  "A smart inventory system that predicts product demand and helps businesses make better purchasing decisions.",
-                features: [
-                  "Demand prediction",
-                  "Low-stock alerts",
-                  "Inventory monitoring",
-                  "Purchase recommendations",
-                ],
-                technologies: ["Python", "Machine Learning", "MySQL"],
-              })
-            }
-          >
-            View Details →
-          </button>
 
 
           {/* ================= PROJECT 04 ================= */}
 
-          <div className="project-card">
+          <div className="project-wrapper">
 
-            <div className="project-number">
-              04
+            <div className="project-card">
+
+              <div className="project-number">
+                04
+              </div>
+
+              <h3>
+                AI MSME Growth Advisor
+              </h3>
+
+              <p>
+                An AI-based business assistant designed to help MSMEs with
+                sales prediction, cash-flow insights, marketing and business
+                decisions.
+              </p>
+
+              <div className="project-tech">
+                <span>AI</span>
+                <span>Python</span>
+                <span>Cloud</span>
+              </div>
+
+              <div className="project-links">
+
+                <a
+                  href="https://github.com/saravanan2212-ai"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  GitHub ↗
+                </a>
+
+                <a
+                  href="#"
+                  onClick={(e) => e.preventDefault()}
+                >
+                  Live Demo ↗
+                </a>
+
+              </div>
+
             </div>
 
-            <h3>
-              AI MSME Growth Advisor
-            </h3>
-
-            <p>
-              An AI-based business assistant designed to help MSMEs with
-              sales prediction, cash-flow insights, marketing and business
-              decisions.
-            </p>
-
-            <div className="project-tech">
-              <span>AI</span>
-              <span>Python</span>
-              <span>Cloud</span>
-            </div>
-
-            <div className="project-links">
-
-              <a
-                href="https://github.com/saravanan2212-ai"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                GitHub ↗
-              </a>
-
-              <a
-                href="#"
-                onClick={(e) => e.preventDefault()}
-              >
-                Live Demo ↗
-              </a>
-
-            </div>
+            <button
+              className="project-details-btn"
+              onClick={() =>
+                setSelectedProject({
+                  title: "AI MSME Growth Advisor",
+                  description:
+                    "An AI-based business assistant designed to help MSMEs with sales prediction, cash-flow insights and business decisions.",
+                  features: [
+                    "Sales prediction",
+                    "Cash-flow insights",
+                    "Marketing suggestions",
+                    "Business recommendations",
+                  ],
+                  technologies: ["AI", "Python", "Cloud"],
+                })
+              }
+            >
+              View Details →
+            </button>
 
           </div>
 
         </div>
-        <button
-          className="project-details-btn"
-          onClick={() =>
-            setSelectedProject({
-              title: "AI MSME Growth Advisor",
-              description:
-                "An AI-based business assistant designed to help MSMEs with sales prediction, cash-flow insights and business decisions.",
-              features: [
-                "Sales prediction",
-                "Cash-flow insights",
-                "Marketing suggestions",
-                "Business recommendations",
-              ],
-              technologies: ["AI", "Python", "Cloud"],
-            })
-          }
-        >
-          View Details →
-        </button>
 
       </section>
-
-
 
       {/* ================= CERTIFICATES ================= */}
 
