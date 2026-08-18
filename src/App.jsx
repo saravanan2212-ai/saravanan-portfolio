@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import "./App.css";
 import profile from "./profile.jpg";
 import resume from "./assets/Saravanan_A_Resume.pdf";
+import song from "./assets/profile-song.mp3";
 
 function App() {
   const [submitted, setSubmitted] = useState(false);
@@ -9,6 +10,7 @@ function App() {
   const [showTop, setShowTop] = useState(false);
   const [selectedProject, setSelectedProject] = useState(null);
   const [selectedCertificate, setSelectedCertificate] = useState(null);
+  const [isPlaying, setIsPlaying] = useState(false);
 
   /* ================= SCROLL REVEAL ================= */
 
@@ -1347,6 +1349,38 @@ function App() {
         </div>
 
       </footer>
+      {/* ================= MUSIC PLAYER ================= */}
+
+      <audio id="profile-song" src={song} loop />
+
+      <div className="music-player">
+
+        <button
+          className="music-btn"
+          onClick={() => {
+            const audio = document.getElementById("profile-song");
+
+            if (audio.paused) {
+              audio.play();
+              setIsPlaying(true);
+            } else {
+              audio.pause();
+              setIsPlaying(false);
+            }
+          }}
+        >
+          {isPlaying ? "❚❚" : "▶"}
+        </button>
+
+        <div className="music-info">
+          <span>🎵</span>
+          <div>
+            <strong>My Profile Song</strong>
+            <small>{isPlaying ? "Playing..." : "Click to play"}</small>
+          </div>
+        </div>
+
+      </div>
 
 
     </main>
