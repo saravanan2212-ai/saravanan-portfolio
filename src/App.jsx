@@ -6,7 +6,9 @@ import resume from "./assets/Saravanan_A_Resume.pdf";
 function App() {
   const [submitted, setSubmitted] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [showTop, setShowTop] = useState(false);
   const [selectedProject, setSelectedProject] = useState(null);
+  const [selectedCertificate, setSelectedCertificate] = useState(null);
 
   /* ================= SCROLL REVEAL ================= */
 
@@ -14,6 +16,7 @@ function App() {
     const elements = document.querySelectorAll(".reveal");
 
     const handleScroll = () => {
+      setShowTop(window.scrollY > 500);
       elements.forEach((element) => {
         const position = element.getBoundingClientRect().top;
 
@@ -53,6 +56,10 @@ function App() {
             About
           </a>
 
+          <a href="#education" onClick={() => setMenuOpen(false)}>
+            Education
+          </a>
+
           <a href="#skills" onClick={() => setMenuOpen(false)}>
             Skills
           </a>
@@ -63,6 +70,10 @@ function App() {
 
           <a href="#certificates" onClick={() => setMenuOpen(false)}>
             Certificates
+          </a>
+
+          <a href="#experience" onClick={() => setMenuOpen(false)}>
+            Experience
           </a>
 
           <a href="#contact" onClick={() => setMenuOpen(false)}>
@@ -168,6 +179,96 @@ function App() {
         </p>
 
       </section>
+      {/* ================= EDUCATION ================= */}
+      <section className="education-section reveal" id="education">
+
+        <p className="section-label">MY JOURNEY</p>
+
+        <h2>
+          Education & <span>Experience</span>
+        </h2>
+
+        <div className="timeline">
+
+          {/* Education */}
+          <div className="timeline-item">
+
+            <div className="timeline-dot"></div>
+
+            <div className="timeline-content">
+
+              <span className="timeline-year">
+                2024 - 2028
+              </span>
+
+              <h3>B.Tech Artificial Intelligence & Data Science</h3>
+
+              <h4>Kings Engineering College</h4>
+
+              <p>
+                Currently pursuing B.Tech in Artificial Intelligence and
+                Data Science with a strong interest in Full Stack Development,
+                Artificial Intelligence, Machine Learning and Cloud Computing.
+              </p>
+
+            </div>
+
+          </div>
+
+
+          {/* Experience */}
+          <div className="timeline-item">
+
+            <div className="timeline-dot"></div>
+
+            <div className="timeline-content">
+
+              <span className="timeline-year">
+                Internship
+              </span>
+
+              <h3>Full Stack Developer Intern</h3>
+
+              <h4>Internship Experience</h4>
+
+              <p>
+                Gained practical experience in frontend and backend development,
+                working with modern web technologies and building responsive
+                applications.
+              </p>
+
+            </div>
+
+          </div>
+
+
+          {/* Certifications */}
+          <div className="timeline-item">
+
+            <div className="timeline-dot"></div>
+
+            <div className="timeline-content">
+
+              <span className="timeline-year">
+                Continuous Learning
+              </span>
+
+              <h3>Technical Certifications</h3>
+
+              <h4>AI • Cloud • Programming • Full Stack</h4>
+
+              <p>
+                Continuously improving technical knowledge through certifications,
+                internships, workshops and hands-on projects.
+              </p>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </section>
 
 
       {/* ================= SKILLS ================= */}
@@ -177,79 +278,84 @@ function App() {
         <div className="skill-card">
           <div className="skill-header">
             <h3>Python</h3>
-            <span>85%</span>
+            <span>90%</span>
           </div>
-
-          <p>Artificial Intelligence & Machine Learning</p>
 
           <div className="skill-bar">
-            <div className="skill-progress" style={{ width: "85%" }}></div>
+            <div className="skill-progress python"></div>
           </div>
+
+          <p>AI, Machine Learning & Backend Development</p>
         </div>
+
 
         <div className="skill-card">
           <div className="skill-header">
             <h3>React</h3>
-            <span>75%</span>
+            <span>85%</span>
           </div>
-
-          <p>Frontend Development</p>
 
           <div className="skill-bar">
-            <div className="skill-progress" style={{ width: "75%" }}></div>
+            <div className="skill-progress react"></div>
           </div>
+
+          <p>Frontend & Responsive Web Development</p>
         </div>
+
 
         <div className="skill-card">
           <div className="skill-header">
             <h3>Java</h3>
-            <span>70%</span>
+            <span>80%</span>
           </div>
-
-          <p>Programming & Development</p>
 
           <div className="skill-bar">
-            <div className="skill-progress" style={{ width: "70%" }}></div>
+            <div className="skill-progress java"></div>
           </div>
+
+          <p>Programming & Application Development</p>
         </div>
+
 
         <div className="skill-card">
           <div className="skill-header">
             <h3>SQL</h3>
-            <span>80%</span>
+            <span>85%</span>
           </div>
-
-          <p>Database Management</p>
 
           <div className="skill-bar">
-            <div className="skill-progress" style={{ width: "80%" }}></div>
+            <div className="skill-progress sql"></div>
           </div>
+
+          <p>Database Management & Queries</p>
         </div>
 
-        <div className="skill-card">
-          <div className="skill-header">
-            <h3>AWS</h3>
-            <span>65%</span>
-          </div>
-
-          <p>Cloud Computing</p>
-
-          <div className="skill-bar">
-            <div className="skill-progress" style={{ width: "65%" }}></div>
-          </div>
-        </div>
 
         <div className="skill-card">
           <div className="skill-header">
             <h3>Node.js</h3>
+            <span>75%</span>
+          </div>
+
+          <div className="skill-bar">
+            <div className="skill-progress node"></div>
+          </div>
+
+          <p>Backend Development & APIs</p>
+        </div>
+
+
+        <div className="skill-card">
+          <div className="skill-header">
+            <h3>AWS</h3>
             <span>70%</span>
           </div>
 
-          <p>Backend Development</p>
-
           <div className="skill-bar">
-            <div className="skill-progress" style={{ width: "70%" }}></div>
+            <div className="skill-progress aws"></div>
           </div>
+
+          <p>Cloud Computing & Deployment</p>
         </div>
 
       </div>
@@ -707,6 +813,173 @@ function App() {
 
       </section>
 
+      {/* ================= EXPERIENCE ================= */}
+      <section className="experience-section reveal" id="experience">
+
+        <p className="section-label">MY EXPERIENCE</p>
+
+        <h2>
+          Internship & <span>Experience</span>
+        </h2>
+
+        <p className="experience-intro">
+          Hands-on experience gained through internships, technical training,
+          and real-world development projects.
+        </p>
+
+        <div className="experience-timeline">
+
+          {/* EXPERIENCE 01 */}
+          <div className="experience-item">
+
+            <div className="experience-dot"></div>
+
+            <div className="experience-card">
+
+              <div className="experience-top">
+                <div>
+                  <span className="experience-number">01</span>
+
+                  <h3>Full Stack Developer Intern</h3>
+
+                  <h4>Full Stack Development</h4>
+                </div>
+
+                <span className="experience-date">
+                  Internship
+                </span>
+              </div>
+
+              <p>
+                Worked on frontend and backend development while gaining
+                practical experience in building responsive web applications,
+                APIs and database-driven solutions.
+              </p>
+
+              <div className="experience-tech">
+                <span>React</span>
+                <span>Node.js</span>
+                <span>JavaScript</span>
+                <span>SQL</span>
+              </div>
+
+            </div>
+          </div>
+
+
+          {/* EXPERIENCE 02 */}
+          <div className="experience-item">
+
+            <div className="experience-dot"></div>
+
+            <div className="experience-card">
+
+              <div className="experience-top">
+                <div>
+                  <span className="experience-number">02</span>
+
+                  <h3>Python Developer Intern</h3>
+
+                  <h4>Python Development</h4>
+                </div>
+
+                <span className="experience-date">
+                  Internship
+                </span>
+              </div>
+
+              <p>
+                Developed Python-based solutions and strengthened programming,
+                problem-solving and application development skills through
+                practical tasks and projects.
+              </p>
+
+              <div className="experience-tech">
+                <span>Python</span>
+                <span>Programming</span>
+                <span>Problem Solving</span>
+              </div>
+
+            </div>
+          </div>
+
+
+          {/* EXPERIENCE 03 */}
+          <div className="experience-item">
+
+            <div className="experience-dot"></div>
+
+            <div className="experience-card">
+
+              <div className="experience-top">
+                <div>
+                  <span className="experience-number">03</span>
+
+                  <h3>Java Developer Intern</h3>
+
+                  <h4>Java Programming</h4>
+                </div>
+
+                <span className="experience-date">
+                  Internship
+                </span>
+              </div>
+
+              <p>
+                Gained hands-on experience in Java programming, object-oriented
+                concepts and application development while working on practical
+                development tasks.
+              </p>
+
+              <div className="experience-tech">
+                <span>Java</span>
+                <span>OOP</span>
+                <span>Application Development</span>
+              </div>
+
+            </div>
+          </div>
+
+
+          {/* EXPERIENCE 04 */}
+          <div className="experience-item">
+
+            <div className="experience-dot"></div>
+
+            <div className="experience-card">
+
+              <div className="experience-top">
+                <div>
+                  <span className="experience-number">04</span>
+
+                  <h3>Cloud Computing Intern</h3>
+
+                  <h4>AWS & Cloud Technologies</h4>
+                </div>
+
+                <span className="experience-date">
+                  Internship
+                </span>
+              </div>
+
+              <p>
+                Explored cloud computing concepts and gained practical exposure
+                to cloud services, deployment concepts and AWS technologies.
+              </p>
+
+              <div className="experience-tech">
+                <span>AWS</span>
+                <span>Cloud</span>
+                <span>Deployment</span>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+
+      </section>
+
 
       {/* ================= CONTACT ================= */}
 
@@ -1007,6 +1280,18 @@ function App() {
           </div>
 
         </div>
+      )}
+      {showTop && (
+        <button
+          className="back-to-top"
+          onClick={() => window.scrollTo({
+            top: 0,
+            behavior: "smooth",
+          })}
+          aria-label="Back to top"
+        >
+          ↑
+        </button>
       )}
 
 
