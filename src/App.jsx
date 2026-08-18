@@ -1293,6 +1293,60 @@ function App() {
           ↑
         </button>
       )}
+      {/* ================= FOOTER ================= */}
+      <footer className="footer">
+
+        <div className="footer-content">
+
+          <div className="footer-brand">
+            <h3>SARAVANAN A</h3>
+            <p>
+              Aspiring Full Stack Developer passionate about
+              AI, modern web technologies and building useful solutions.
+            </p>
+          </div>
+
+          <div className="footer-links">
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#skills">Skills</a>
+            <a href="#projects">Projects</a>
+            <a href="#contact">Contact</a>
+          </div>
+
+        </div>
+
+        <div className="footer-bottom">
+          <p>© 2026 Saravanan A. All rights reserved.</p>
+
+          <div className="footer-socials">
+            <a
+              href="https://github.com/saravanan2212-ai"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              GitHub
+            </a>
+
+            <a
+              href="https://www.linkedin.com/in/saravanan-a-797887355/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              LinkedIn
+            </a>
+
+            <a
+              href="https://www.instagram.com/mr_fearlez_22/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Instagram
+            </a>
+          </div>
+        </div>
+
+      </footer>
 
 
     </main>
