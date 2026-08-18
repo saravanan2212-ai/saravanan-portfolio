@@ -12,6 +12,7 @@ function App() {
   const [selectedProject, setSelectedProject] = useState(null);
   const [selectedCertificate, setSelectedCertificate] = useState(null);
   const [viewCertificate, setViewCertificate] = useState(null);
+  const [showResume, setShowResume] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
 
   /* ================= SCROLL REVEAL ================= */
@@ -408,12 +409,20 @@ function App() {
               View My Projects
             </a>
 
+            <button
+              type="button"
+              className="outline-btn"
+              onClick={() => setShowResume(true)}
+            >
+              📄 View Resume
+            </button>
+
             <a
               href={resume}
               download="Saravanan_A_Resume.pdf"
               className="outline-btn"
             >
-              Download Resume
+              ⬇ Download Resume
             </a>
 
             <a
@@ -679,16 +688,17 @@ function App() {
                     GitHub ↗
                   </a>
 
+                  <button
+                    type="button"
+                    className="project-details-btn"
+                    onClick={() => setSelectedProject(project)}
+                  >
+                    View Details →
+                  </button>
+
                 </div>
 
               </div>
-
-              <button
-                className="project-details-btn"
-                onClick={() => setSelectedProject(project)}
-              >
-                View Details →
-              </button>
 
             </div>
           ))}
@@ -1418,6 +1428,82 @@ function App() {
             className="certificate-full-image"
             onClick={(e) => e.stopPropagation()}
           />
+
+        </div>
+      )}
+      {/* ================= RESUME MODAL ================= */}
+
+      {showResume && (
+        <div
+          className="resume-modal-overlay"
+          onClick={() => setShowResume(false)}
+        >
+
+          <div
+            className="resume-modal"
+            onClick={(e) => e.stopPropagation()}
+          >
+
+            <div className="resume-modal-header">
+
+              <div>
+                <p className="modal-label">
+                  MY RESUME
+                </p>
+
+                <h2>
+                  Saravanan A
+                </h2>
+              </div>
+
+              <button
+                type="button"
+                className="resume-close-btn"
+                onClick={() => setShowResume(false)}
+                aria-label="Close resume"
+              >
+                ✕
+              </button>
+
+            </div>
+
+
+            {/* RESUME PREVIEW */}
+
+            <div className="resume-preview">
+
+              <iframe
+                src={resume}
+                title="Saravanan A Resume"
+              ></iframe>
+
+            </div>
+
+
+            {/* RESUME ACTIONS */}
+
+            <div className="resume-actions">
+
+              <a
+                href={resume}
+                download="Saravanan_A_Resume.pdf"
+                className="resume-download-btn"
+              >
+                ⬇ Download Resume
+              </a>
+
+              <a
+                href={resume}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="resume-open-btn"
+              >
+                ↗ Open in New Tab
+              </a>
+
+            </div>
+
+          </div>
 
         </div>
       )}

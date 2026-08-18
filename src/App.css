@@ -3658,3 +3658,210 @@
   .certificate-view-close:hover {
     transform: scale(1.08);
   }
+
+  /* ================= RESUME MODAL ================= */
+
+  .resume-modal-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 99999;
+
+    background: rgba(0, 0, 0, 0.88);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 25px;
+    box-sizing: border-box;
+  }
+
+  .resume-modal {
+    width: min(1000px, 95vw);
+    height: min(90vh, 850px);
+
+    background: #ffffff;
+
+    border-radius: 18px;
+
+    overflow: hidden;
+
+    display: flex;
+    flex-direction: column;
+
+    box-shadow: 0 25px 80px rgba(0, 0, 0, 0.5);
+  }
+
+  .resume-modal-header {
+    min-height: 75px;
+
+    padding: 15px 22px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    border-bottom: 1px solid #e5e7eb;
+  }
+
+  .resume-modal-header h2 {
+    margin: 0;
+
+    color: #111827;
+
+    font-size: 24px;
+  }
+
+  .resume-close-btn {
+    width: 42px;
+    height: 42px;
+
+    border: none;
+    border-radius: 50%;
+
+    background: #f3f4f6;
+    color: #111827;
+
+    font-size: 20px;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+  }
+
+  .resume-close-btn:hover {
+    transform: scale(1.08);
+    background: #e5e7eb;
+  }
+
+  .resume-preview {
+    flex: 1;
+
+    background: #525252;
+
+    overflow: hidden;
+  }
+
+  .resume-preview iframe {
+    width: 100%;
+    height: 100%;
+
+    border: none;
+
+    display: block;
+  }
+
+  .resume-actions {
+    min-height: 70px;
+
+    padding: 12px 20px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 12px;
+
+    background: #ffffff;
+
+    border-top: 1px solid #e5e7eb;
+  }
+
+  .resume-download-btn,
+  .resume-open-btn {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 11px 20px;
+
+    border-radius: 8px;
+
+    text-decoration: none;
+
+    font-weight: 600;
+
+    transition: 0.2s ease;
+  }
+
+  .resume-download-btn {
+    background: #111827;
+    color: white;
+  }
+
+  .resume-open-btn {
+    background: #f3f4f6;
+    color: #111827;
+  }
+
+  .resume-download-btn:hover,
+  .resume-open-btn:hover {
+    transform: translateY(-2px);
+  }
+
+
+  /* ================= MOBILE ================= */
+
+  @media (max-width: 768px) {
+
+    .resume-modal-overlay {
+      padding: 10px;
+    }
+
+    .resume-modal {
+      width: 100%;
+      height: 92vh;
+
+      border-radius: 12px;
+    }
+
+    .resume-modal-header {
+      padding: 12px 15px;
+    }
+
+    .resume-modal-header h2 {
+      font-size: 20px;
+    }
+
+    .resume-actions {
+      flex-direction: column;
+
+      padding: 10px;
+    }
+
+    .resume-download-btn,
+    .resume-open-btn {
+      width: 100%;
+    }
+
+  }
+
+  .project-links {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+  }
+
+  .project-details-btn {
+    border: none;
+    background: transparent;
+
+    color: #3b82f6;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    padding: 0;
+
+    transition: 0.3s ease;
+  }
+
+  .project-details-btn:hover {
+    color: #06b6d4;
+    transform: translateX(4px);
+  }
