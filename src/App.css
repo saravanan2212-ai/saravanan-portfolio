@@ -2991,7 +2991,7 @@ section h2 span {
   position: fixed;
 
   right: 28px;
-  bottom: 88px;
+  bottom: 28px;
 
   z-index: 998;
 
@@ -3104,7 +3104,7 @@ section h2 span {
 
   .music-player {
     right: 18px;
-    bottom: 75px;
+    bottom: 18px;
 
     padding: 8px 11px 8px 8px;
 
