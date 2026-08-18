@@ -11,6 +11,7 @@ function App() {
   const [showTop, setShowTop] = useState(false);
   const [selectedProject, setSelectedProject] = useState(null);
   const [selectedCertificate, setSelectedCertificate] = useState(null);
+  const [viewCertificate, setViewCertificate] = useState(null);
   const [isPlaying, setIsPlaying] = useState(false);
 
   /* ================= SCROLL REVEAL ================= */
@@ -165,7 +166,6 @@ function App() {
       organization: "Cloud Computing",
       date: "2025",
       credentialId: "CC-001",
-      verifyLink: "#",
     },
     {
       image: "Certificate2.jpg",
@@ -173,7 +173,6 @@ function App() {
       organization: "AWS",
       date: "2025",
       credentialId: "AWS-002",
-      verifyLink: "#",
     },
     {
       image: "Certificate3.jpg",
@@ -181,7 +180,6 @@ function App() {
       organization: "Full Stack Development",
       date: "2025",
       credentialId: "FSD-003",
-      verifyLink: "#",
     },
     {
       image: "Certificate4.jpg",
@@ -189,7 +187,6 @@ function App() {
       organization: "Java Programming",
       date: "2025",
       credentialId: "JAVA-004",
-      verifyLink: "#",
     },
     {
       image: "Certificate5.jpg",
@@ -197,7 +194,6 @@ function App() {
       organization: "Python Programming",
       date: "2025",
       credentialId: "PY-005",
-      verifyLink: "#",
     },
     {
       image: "Certificate6.jpg",
@@ -205,7 +201,6 @@ function App() {
       organization: "Cloud Computing",
       date: "2025",
       credentialId: "CLOUD-006",
-      verifyLink: "#",
     },
     {
       image: "Certificate7.jpg",
@@ -213,7 +208,6 @@ function App() {
       organization: "Full Stack Development",
       date: "2025",
       credentialId: "FSD-007",
-      verifyLink: "#",
     },
     {
       image: "Certificate8.jpg",
@@ -221,7 +215,6 @@ function App() {
       organization: "Python Development",
       date: "2025",
       credentialId: "PY-008",
-      verifyLink: "#",
     },
     {
       image: "Certificate9.jpg",
@@ -229,7 +222,6 @@ function App() {
       organization: "Java Development",
       date: "2025",
       credentialId: "JAVA-009",
-      verifyLink: "#",
     },
     {
       image: "Certificate10.jpg",
@@ -237,7 +229,6 @@ function App() {
       organization: "Python Programming",
       date: "2025",
       credentialId: "PY-010",
-      verifyLink: "#",
     },
     {
       image: "Certificate11.jpg",
@@ -245,9 +236,9 @@ function App() {
       organization: "Web Development",
       date: "2025",
       credentialId: "WEB-011",
-      verifyLink: "#",
     },
   ];
+
   /* ================= EXPERIENCE ================= */
 
   const experiences = [
@@ -314,7 +305,9 @@ function App() {
       }
     } catch (error) {
       console.error(error);
-      alert("Unable to send message. Please check your internet connection.");
+      alert(
+        "Unable to send message. Please check your internet connection."
+      );
     }
   };
 
@@ -674,6 +667,8 @@ function App() {
 
                 </div>
 
+                {/* ================= GITHUB ONLY ================= */}
+
                 <div className="project-links">
 
                   <a
@@ -682,13 +677,6 @@ function App() {
                     rel="noopener noreferrer"
                   >
                     GitHub ↗
-                  </a>
-
-                  <a
-                    href="#"
-                    onClick={(e) => e.preventDefault()}
-                  >
-                    Live Demo ↗
                   </a>
 
                 </div>
@@ -727,7 +715,7 @@ function App() {
 
         <div className="certificates-grid">
 
-          {certificates.map((certificate, index) => (
+          {certificates.map((certificate) => (
             <div
               className="certificate-card"
               key={certificate.image}
@@ -752,7 +740,6 @@ function App() {
               <span className="certificate-view">
                 Click to View →
               </span>
-
 
             </div>
           ))}
@@ -863,9 +850,6 @@ function App() {
         </p>
 
         <div className="contact-container">
-
-
-          {/* CONTACT DETAILS */}
 
           <div className="contact-info">
 
@@ -1126,6 +1110,7 @@ function App() {
         </div>
       )}
 
+
       {/* ================= CERTIFICATE MODAL ================= */}
 
       {selectedCertificate && (
@@ -1138,8 +1123,6 @@ function App() {
             className="certificate-modal"
             onClick={(e) => e.stopPropagation()}
           >
-
-            {/* CLOSE BUTTON */}
 
             <button
               className="certificate-modal-close"
@@ -1179,11 +1162,7 @@ function App() {
                 {selectedCertificate.title}
               </h2>
 
-
               <div className="certificate-details">
-
-
-                {/* ORGANIZATION */}
 
                 <div className="certificate-detail-item">
 
@@ -1204,8 +1183,6 @@ function App() {
                 </div>
 
 
-                {/* DATE */}
-
                 <div className="certificate-detail-item">
 
                   <span className="detail-icon">
@@ -1224,8 +1201,6 @@ function App() {
 
                 </div>
 
-
-                {/* CREDENTIAL ID */}
 
                 <div className="certificate-detail-item">
 
@@ -1248,41 +1223,17 @@ function App() {
               </div>
 
 
-              {/* BUTTONS */}
+              {/* CERTIFICATE BUTTONS */}
+              {/* ================= CERTIFICATE BUTTONS ================= */}
 
               <div className="certificate-modal-buttons">
 
-                {selectedCertificate.verifyLink !== "#" ? (
-
-                  <a
-                    href={selectedCertificate.verifyLink}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="certificate-verify-btn"
-                  >
-                    View Certificate ↗
-                  </a>
-
-                ) : (
-
-                  <button
-                    className="certificate-verify-btn disabled"
-                    type="button"
-                    onClick={() =>
-                      alert("Certificate verification link not added yet.")
-                    }
-                  >
-                    View Certificate ↗
-                  </button>
-
-                )}
-
-
                 <button
-                  className="certificate-close-btn"
-                  onClick={() => setSelectedCertificate(null)}
+                  className="certificate-verify-btn"
+                  type="button"
+                  onClick={() => setViewCertificate(selectedCertificate)}
                 >
-                  Close
+                  View Certificate ↗
                 </button>
 
               </div>
@@ -1293,6 +1244,7 @@ function App() {
 
         </div>
       )}
+
 
       {/* ================= BACK TO TOP ================= */}
 
@@ -1439,6 +1391,36 @@ function App() {
         </div>
 
       </div>
+      {/* ================= FULL CERTIFICATE VIEW ================= */}
+
+      {viewCertificate && (
+        <div
+          className="certificate-view-overlay"
+          onClick={() => setViewCertificate(null)}
+        >
+
+          <button
+            className="certificate-view-close"
+            onClick={() => setViewCertificate(null)}
+            aria-label="Close certificate"
+          >
+            ✕
+          </button>
+
+          <img
+            src={
+              new URL(
+                `./assets/${viewCertificate.image}`,
+                import.meta.url
+              ).href
+            }
+            alt={viewCertificate.title}
+            className="certificate-full-image"
+            onClick={(e) => e.stopPropagation()}
+          />
+
+        </div>
+      )}
 
     </main>
   );
