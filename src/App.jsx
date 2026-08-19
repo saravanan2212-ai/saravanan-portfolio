@@ -4,6 +4,7 @@ import "./App.css";
 import profile from "./profile.jpg";
 import resume from "./assets/Saravanan_A_Resume.pdf";
 import song from "./assets/profile-song.mp3";
+
 import project1 from "./assets/project1.png";
 import project2 from "./assets/project2.png";
 import project3 from "./assets/project3.png";
@@ -70,6 +71,7 @@ function App() {
     {
       number: "01",
       title: "Smart Queue Management System",
+      image: project1,
       description:
         "An intelligent queue management solution designed to reduce waiting time and improve patient flow in government hospitals.",
       technologies: ["AI", "Python", "React"],
@@ -83,6 +85,7 @@ function App() {
     {
       number: "02",
       title: "SkillSphere AI",
+      image: project2,
       description:
         "An AI-powered platform that brings internships, jobs, hackathons, events, career guidance and opportunities together in one place.",
       technologies: ["AI", "React", "Node.js"],
@@ -96,6 +99,7 @@ function App() {
     {
       number: "03",
       title: "AI Inventory & Demand Prediction",
+      image: project3,
       description:
         "A smart inventory system that predicts product demand, provides low-stock alerts and helps businesses make better purchasing decisions.",
       technologies: ["Python", "Machine Learning", "MySQL"],
@@ -109,6 +113,7 @@ function App() {
     {
       number: "04",
       title: "AI MSME Growth Advisor",
+      image: project4,
       description:
         "An AI-based business assistant designed to help MSMEs with sales prediction, cash-flow insights, marketing and business decisions.",
       technologies: ["AI", "Python", "Cloud"],
@@ -120,8 +125,6 @@ function App() {
       ],
     },
   ];
-
-  /* ================= SKILLS ================= */
 
   /* ================= SKILLS ================= */
 
@@ -618,8 +621,6 @@ function App() {
 
       {/* ================= SKILLS ================= */}
 
-      {/* ================= SKILLS ================= */}
-
       <section
         className="skills-section reveal"
         id="skills"
@@ -656,6 +657,7 @@ function App() {
                 <div className="skill-header">
 
                   <div>
+
                     <h3>
                       {skill.name}
                     </h3>
@@ -663,6 +665,7 @@ function App() {
                     <span className="skill-category">
                       {skill.category}
                     </span>
+
                   </div>
 
                   <span className="skill-percentage">
@@ -699,9 +702,14 @@ function App() {
 
       {/* ================= PROJECTS ================= */}
 
-      <section className="projects-section" id="projects">
+      <section
+        className="projects-section reveal"
+        id="projects"
+      >
 
-        <p className="section-label">MY PROJECTS</p>
+        <p className="section-label">
+          MY PROJECTS
+        </p>
 
         <h2>
           Featured <span>Projects</span>
@@ -709,311 +717,169 @@ function App() {
 
         <div className="projects-grid">
 
-          {/* PROJECT 1 */}
-          <article className="project-card">
+          {projects.map((project) => (
 
-            <div className="project-image">
-              <img
-                src={project1}
-                alt="Smart Queue Management System"
-              />
-            </div>
-
-            <div className="project-content">
-
-              <span className="project-number">01</span>
-
-              <h3>Smart Queue Management System</h3>
-
-              <p>
-                An intelligent queue management system designed for
-                government hospitals to reduce patient waiting time
-                and improve the overall hospital experience.
-              </p>
-
-              <div className="project-tech">
-                <span>React</span>
-                <span>Node.js</span>
-                <span>MySQL</span>
-                <span>AI</span>
-              </div>
-
-              <div className="project-actions">
-
-                <button
-                  className="project-btn"
-                  onClick={() =>
-                    setSelectedProject({
-                      title: "Smart Queue Management System",
-                      image: project1,
-                      description:
-                        "An intelligent queue management platform designed for government hospitals to reduce patient waiting time, manage queues efficiently and improve the patient experience.",
-                      tech: ["React", "Node.js", "MySQL", "AI"]
-                    })
-                  }
-                >
-                  View Details
-                </button>
-
-                <a href="#" className="project-link">
-                  GitHub ↗
-                </a>
-
-              </div>
-
-            </div>
-
-          </article>
-
-
-          {/* PROJECT 2 */}
-          <article className="project-card">
-
-            <div className="project-image">
-              <img
-                src={project2}
-                alt="SkillSphere AI"
-              />
-            </div>
-
-            <div className="project-content">
-
-              <span className="project-number">02</span>
-
-              <h3>SkillSphere AI</h3>
-
-              <p>
-                An AI-powered career platform that helps students
-                discover internships, jobs, hackathons, events and
-                career guidance opportunities.
-              </p>
-
-              <div className="project-tech">
-                <span>React</span>
-                <span>Node.js</span>
-                <span>AI</span>
-                <span>MongoDB</span>
-              </div>
-
-              <div className="project-actions">
-
-                <button
-                  className="project-btn"
-                  onClick={() =>
-                    setSelectedProject({
-                      title: "SkillSphere AI",
-                      image: project2,
-                      description:
-                        "An AI-powered career platform that brings internships, jobs, hackathons, events and career guidance together in one platform for students.",
-                      tech: ["React", "Node.js", "AI", "MongoDB"]
-                    })
-                  }
-                >
-                  View Details
-                </button>
-
-                <a href="#" className="project-link">
-                  GitHub ↗
-                </a>
-
-              </div>
-
-            </div>
-
-          </article>
-
-
-          {/* PROJECT 3 */}
-          <article className="project-card">
-
-            <div className="project-image">
-              <img
-                src={project3}
-                alt="SmartStock AI"
-              />
-            </div>
-
-            <div className="project-content">
-
-              <span className="project-number">03</span>
-
-              <h3>SmartStock AI</h3>
-
-              <p>
-                AI-based inventory and demand prediction platform
-                that helps businesses forecast demand and prevent
-                stockouts.
-              </p>
-
-              <div className="project-tech">
-                <span>Python</span>
-                <span>Machine Learning</span>
-                <span>React</span>
-                <span>SQL</span>
-              </div>
-
-              <div className="project-actions">
-
-                <button
-                  className="project-btn"
-                  onClick={() =>
-                    setSelectedProject({
-                      title: "SmartStock AI",
-                      image: project3,
-                      description:
-                        "An AI-based inventory and demand prediction platform that helps businesses forecast product demand, prevent stockouts and make smarter inventory decisions.",
-                      tech: [
-                        "Python",
-                        "Machine Learning",
-                        "React",
-                        "SQL"
-                      ]
-                    })
-                  }
-                >
-                  View Details
-                </button>
-
-                <a href="#" className="project-link">
-                  GitHub ↗
-                </a>
-
-              </div>
-
-            </div>
-
-          </article>
-
-
-          {/* PROJECT 4 */}
-          <article className="project-card">
-
-            <div className="project-image">
-              <img
-                src={project4}
-                alt="VyapAI"
-              />
-            </div>
-
-            <div className="project-content">
-
-              <span className="project-number">04</span>
-
-              <h3>VyapAI</h3>
-
-              <p>
-                AI-powered MSME growth advisor providing sales
-                prediction, supplier recommendations, cash-flow
-                forecasting and business reports.
-              </p>
-
-              <div className="project-tech">
-                <span>Python</span>
-                <span>AI / ML</span>
-                <span>React</span>
-                <span>FastAPI</span>
-              </div>
-
-              <div className="project-actions">
-
-                <button
-                  className="project-btn"
-                  onClick={() =>
-                    setSelectedProject({
-                      title: "VyapAI",
-                      image: project4,
-                      description:
-                        "An AI-powered MSME growth advisor that provides sales prediction, supplier recommendations, cash-flow forecasting and GST-ready business reports.",
-                      tech: [
-                        "Python",
-                        "AI / ML",
-                        "React",
-                        "FastAPI"
-                      ]
-                    })
-                  }
-                >
-                  View Details
-                </button>
-
-                <a href="#" className="project-link">
-                  GitHub ↗
-                </a>
-
-              </div>
-
-            </div>
-
-          </article>
-
-        </div>
-
-
-        {/* ================= PROJECT DETAILS MODAL ================= */}
-
-        {selectedProject && (
-
-          <div
-            className="project-modal-overlay"
-            onClick={() => setSelectedProject(null)}
-          >
-
-            <div
-              className="project-modal"
-              onClick={(e) => e.stopPropagation()}
+            <article
+              className="project-card"
+              key={project.number}
             >
 
-              <button
-                className="project-modal-close"
-                onClick={() => setSelectedProject(null)}
-              >
-                ×
-              </button>
+              <div className="project-image">
 
-              <img
-                src={selectedProject.image}
-                alt={selectedProject.title}
-                className="project-modal-image"
-              />
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  loading="lazy"
+                />
 
-              <div className="project-modal-content">
+              </div>
+
+              <div className="project-content">
 
                 <span className="project-number">
-                  PROJECT DETAILS
+                  {project.number}
                 </span>
 
-                <h2>{selectedProject.title}</h2>
+                <h3>
+                  {project.title}
+                </h3>
 
                 <p>
-                  {selectedProject.description}
+                  {project.description}
                 </p>
 
                 <div className="project-tech">
 
-                  {selectedProject.tech.map((tech, index) => (
-                    <span key={index}>
+                  {project.technologies.map((tech) => (
+                    <span key={tech}>
                       {tech}
                     </span>
                   ))}
 
                 </div>
 
-                <button
-                  className="project-btn modal-close-btn"
-                  onClick={() => setSelectedProject(null)}
-                >
-                  Close
-                </button>
+                <div className="project-actions">
+
+                  <button
+                    type="button"
+                    className="project-btn"
+                    onClick={() => setSelectedProject(project)}
+                  >
+                    View Details
+                  </button>
+
+                  <a
+                    href="https://github.com/saravanan2212-ai"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="project-link"
+                  >
+                    GitHub ↗
+                  </a>
+
+                </div>
 
               </div>
+
+            </article>
+
+          ))}
+
+        </div>
+
+      </section>
+
+
+      {/* ================= PROJECT DETAILS MODAL ================= */}
+
+      {selectedProject && (
+
+        <div
+          className="project-modal-overlay"
+          onClick={() => setSelectedProject(null)}
+        >
+
+          <div
+            className="project-modal"
+            onClick={(e) => e.stopPropagation()}
+          >
+
+            <button
+              type="button"
+              className="project-modal-close"
+              onClick={() => setSelectedProject(null)}
+              aria-label="Close project details"
+            >
+              ×
+            </button>
+
+            <div className="project-modal-image-box">
+
+              <img
+                src={selectedProject.image}
+                alt={selectedProject.title}
+              />
+
+            </div>
+
+            <div className="project-modal-body">
+
+              <p className="modal-label">
+                PROJECT DETAILS
+              </p>
+
+              <h2>
+                {selectedProject.title}
+              </h2>
+
+              <p className="modal-description">
+                {selectedProject.description}
+              </p>
+
+              <h3>
+                Key Features
+              </h3>
+
+              <ul className="modal-features">
+
+                {selectedProject.features.map((feature) => (
+                  <li key={feature}>
+                    {feature}
+                  </li>
+                ))}
+
+              </ul>
+
+              <h3>
+                Technologies
+              </h3>
+
+              <div className="modal-tech">
+
+                {selectedProject.technologies.map((technology) => (
+                  <span key={technology}>
+                    {technology}
+                  </span>
+                ))}
+
+              </div>
+
+              <button
+                type="button"
+                className="modal-close-button"
+                onClick={() => setSelectedProject(null)}
+              >
+                Close
+              </button>
 
             </div>
 
           </div>
 
-        )}
+        </div>
 
-      </section>
+      )}
+
 
       {/* ================= CERTIFICATES ================= */}
 
@@ -1033,6 +899,7 @@ function App() {
         <div className="certificates-grid">
 
           {certificates.map((certificate) => (
+
             <div
               className="certificate-card"
               key={certificate.image}
@@ -1059,11 +926,181 @@ function App() {
               </span>
 
             </div>
+
           ))}
 
         </div>
 
       </section>
+
+
+      {/* ================= CERTIFICATE MODAL ================= */}
+
+      {selectedCertificate && (
+
+        <div
+          className="certificate-modal-overlay"
+          onClick={() => setSelectedCertificate(null)}
+        >
+
+          <div
+            className="certificate-modal"
+            onClick={(e) => e.stopPropagation()}
+          >
+
+            <button
+              type="button"
+              className="certificate-modal-close"
+              onClick={() => setSelectedCertificate(null)}
+              aria-label="Close certificate"
+            >
+              ✕
+            </button>
+
+            <div className="certificate-modal-image">
+
+              <img
+                src={
+                  new URL(
+                    `./assets/${selectedCertificate.image}`,
+                    import.meta.url
+                  ).href
+                }
+                alt={selectedCertificate.title}
+              />
+
+            </div>
+
+            <div className="certificate-modal-content">
+
+              <p className="modal-label">
+                CERTIFICATE
+              </p>
+
+              <h2>
+                {selectedCertificate.title}
+              </h2>
+
+              <div className="certificate-details">
+
+                <div className="certificate-detail-item">
+
+                  <span className="detail-icon">
+                    🏢
+                  </span>
+
+                  <div>
+
+                    <small>
+                      Issuing Organization
+                    </small>
+
+                    <strong>
+                      {selectedCertificate.organization}
+                    </strong>
+
+                  </div>
+
+                </div>
+
+
+                <div className="certificate-detail-item">
+
+                  <span className="detail-icon">
+                    📅
+                  </span>
+
+                  <div>
+
+                    <small>
+                      Date
+                    </small>
+
+                    <strong>
+                      {selectedCertificate.date}
+                    </strong>
+
+                  </div>
+
+                </div>
+
+
+                <div className="certificate-detail-item">
+
+                  <span className="detail-icon">
+                    🆔
+                  </span>
+
+                  <div>
+
+                    <small>
+                      Credential ID
+                    </small>
+
+                    <strong>
+                      {selectedCertificate.credentialId}
+                    </strong>
+
+                  </div>
+
+                </div>
+
+              </div>
+
+              <div className="certificate-modal-buttons">
+
+                <button
+                  type="button"
+                  className="certificate-verify-btn"
+                  onClick={() => setViewCertificate(selectedCertificate)}
+                >
+                  View Certificate ↗
+                </button>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      )}
+
+
+      {/* ================= FULL CERTIFICATE VIEW ================= */}
+
+      {viewCertificate && (
+
+        <div
+          className="certificate-view-overlay"
+          onClick={() => setViewCertificate(null)}
+        >
+
+          <button
+            type="button"
+            className="certificate-view-close"
+            onClick={() => setViewCertificate(null)}
+            aria-label="Close certificate"
+          >
+            ✕
+          </button>
+
+          <img
+            src={
+              new URL(
+                `./assets/${viewCertificate.image}`,
+                import.meta.url
+              ).href
+            }
+            alt={viewCertificate.title}
+            className="certificate-full-image"
+            onClick={(e) => e.stopPropagation()}
+          />
+
+        </div>
+
+      )}
 
 
       {/* ================= EXPERIENCE ================= */}
@@ -1089,6 +1126,7 @@ function App() {
         <div className="experience-timeline">
 
           {experiences.map((experience) => (
+
             <div
               className="experience-item"
               key={experience.number}
@@ -1129,9 +1167,11 @@ function App() {
                 <div className="experience-tech">
 
                   {experience.technologies.map((tech) => (
+
                     <span key={tech}>
                       {tech}
                     </span>
+
                   ))}
 
                 </div>
@@ -1139,6 +1179,7 @@ function App() {
               </div>
 
             </div>
+
           ))}
 
         </div>
@@ -1177,6 +1218,7 @@ function App() {
               </div>
 
               <div>
+
                 <h3>
                   Email
                 </h3>
@@ -1184,6 +1226,7 @@ function App() {
                 <p>
                   saravanananand326@gmail.com
                 </p>
+
               </div>
 
             </div>
@@ -1196,6 +1239,7 @@ function App() {
               </div>
 
               <div>
+
                 <h3>
                   Phone
                 </h3>
@@ -1203,6 +1247,7 @@ function App() {
                 <p>
                   9042336121
                 </p>
+
               </div>
 
             </div>
@@ -1220,6 +1265,7 @@ function App() {
               </div>
 
               <div>
+
                 <h3>
                   Instagram
                 </h3>
@@ -1227,6 +1273,7 @@ function App() {
                 <p>
                   @mr_fearlez_22
                 </p>
+
               </div>
 
             </a>
@@ -1244,6 +1291,7 @@ function App() {
               </div>
 
               <div>
+
                 <h3>
                   LinkedIn
                 </h3>
@@ -1251,6 +1299,7 @@ function App() {
                 <p>
                   Let's connect professionally
                 </p>
+
               </div>
 
             </a>
@@ -1268,6 +1317,7 @@ function App() {
               </div>
 
               <div>
+
                 <h3>
                   GitHub
                 </h3>
@@ -1275,6 +1325,7 @@ function App() {
                 <p>
                   Explore my projects & code
                 </p>
+
               </div>
 
             </a>
@@ -1357,216 +1408,12 @@ function App() {
       </section>
 
 
-      {/* ================= PROJECT MODAL ================= */}
-
-      {selectedProject && (
-        <div
-          className="project-modal-overlay"
-          onClick={() => setSelectedProject(null)}
-        >
-
-          <div
-            className="project-modal"
-            onClick={(e) => e.stopPropagation()}
-          >
-
-            <button
-              className="modal-close"
-              onClick={() => setSelectedProject(null)}
-              aria-label="Close project details"
-            >
-              ✕
-            </button>
-
-            <p className="modal-label">
-              PROJECT DETAILS
-            </p>
-
-            <h2>
-              {selectedProject.title}
-            </h2>
-
-            <p className="modal-description">
-              {selectedProject.description}
-            </p>
-
-            <h3>
-              Key Features
-            </h3>
-
-            <ul className="modal-features">
-
-              {selectedProject.features.map(
-                (feature, index) => (
-                  <li key={index}>
-                    {feature}
-                  </li>
-                )
-              )}
-
-            </ul>
-
-            <h3>
-              Technologies
-            </h3>
-
-            <div className="modal-tech">
-
-              {selectedProject.technologies.map(
-                (technology) => (
-                  <span key={technology}>
-                    {technology}
-                  </span>
-                )
-              )}
-
-            </div>
-
-          </div>
-
-        </div>
-      )}
-
-
-      {/* ================= CERTIFICATE MODAL ================= */}
-
-      {selectedCertificate && (
-        <div
-          className="certificate-modal-overlay"
-          onClick={() => setSelectedCertificate(null)}
-        >
-
-          <div
-            className="certificate-modal"
-            onClick={(e) => e.stopPropagation()}
-          >
-
-            <button
-              className="certificate-modal-close"
-              onClick={() => setSelectedCertificate(null)}
-              aria-label="Close certificate"
-            >
-              ✕
-            </button>
-
-
-            {/* CERTIFICATE IMAGE */}
-
-            <div className="certificate-modal-image">
-
-              <img
-                src={
-                  new URL(
-                    `./assets/${selectedCertificate.image}`,
-                    import.meta.url
-                  ).href
-                }
-                alt={selectedCertificate.title}
-              />
-
-            </div>
-
-
-            {/* CERTIFICATE DETAILS */}
-
-            <div className="certificate-modal-content">
-
-              <p className="modal-label">
-                CERTIFICATE
-              </p>
-
-              <h2>
-                {selectedCertificate.title}
-              </h2>
-
-              <div className="certificate-details">
-
-                <div className="certificate-detail-item">
-
-                  <span className="detail-icon">
-                    🏢
-                  </span>
-
-                  <div>
-                    <small>
-                      Issuing Organization
-                    </small>
-
-                    <strong>
-                      {selectedCertificate.organization}
-                    </strong>
-                  </div>
-
-                </div>
-
-
-                <div className="certificate-detail-item">
-
-                  <span className="detail-icon">
-                    📅
-                  </span>
-
-                  <div>
-                    <small>
-                      Date
-                    </small>
-
-                    <strong>
-                      {selectedCertificate.date}
-                    </strong>
-                  </div>
-
-                </div>
-
-
-                <div className="certificate-detail-item">
-
-                  <span className="detail-icon">
-                    🆔
-                  </span>
-
-                  <div>
-                    <small>
-                      Credential ID
-                    </small>
-
-                    <strong>
-                      {selectedCertificate.credentialId}
-                    </strong>
-                  </div>
-
-                </div>
-
-              </div>
-
-
-              {/* CERTIFICATE BUTTONS */}
-              {/* ================= CERTIFICATE BUTTONS ================= */}
-
-              <div className="certificate-modal-buttons">
-
-                <button
-                  className="certificate-verify-btn"
-                  type="button"
-                  onClick={() => setViewCertificate(selectedCertificate)}
-                >
-                  View Certificate ↗
-                </button>
-
-              </div>
-
-            </div>
-
-          </div>
-
-        </div>
-      )}
-
-
       {/* ================= BACK TO TOP ================= */}
 
       {showTop && (
+
         <button
+          type="button"
           className="back-to-top"
           onClick={() =>
             window.scrollTo({
@@ -1578,6 +1425,7 @@ function App() {
         >
           ↑
         </button>
+
       )}
 
 
@@ -1678,6 +1526,7 @@ function App() {
       <div className="music-player">
 
         <button
+          type="button"
           className="music-btn"
           onClick={toggleMusic}
           aria-label="Play or pause profile song"
@@ -1708,39 +1557,12 @@ function App() {
         </div>
 
       </div>
-      {/* ================= FULL CERTIFICATE VIEW ================= */}
 
-      {viewCertificate && (
-        <div
-          className="certificate-view-overlay"
-          onClick={() => setViewCertificate(null)}
-        >
 
-          <button
-            className="certificate-view-close"
-            onClick={() => setViewCertificate(null)}
-            aria-label="Close certificate"
-          >
-            ✕
-          </button>
-
-          <img
-            src={
-              new URL(
-                `./assets/${viewCertificate.image}`,
-                import.meta.url
-              ).href
-            }
-            alt={viewCertificate.title}
-            className="certificate-full-image"
-            onClick={(e) => e.stopPropagation()}
-          />
-
-        </div>
-      )}
       {/* ================= RESUME MODAL ================= */}
 
       {showResume && (
+
         <div
           className="resume-modal-overlay"
           onClick={() => setShowResume(false)}
@@ -1754,6 +1576,7 @@ function App() {
             <div className="resume-modal-header">
 
               <div>
+
                 <p className="modal-label">
                   MY RESUME
                 </p>
@@ -1761,6 +1584,7 @@ function App() {
                 <h2>
                   Saravanan A
                 </h2>
+
               </div>
 
               <button
@@ -1775,8 +1599,6 @@ function App() {
             </div>
 
 
-            {/* RESUME PREVIEW */}
-
             <div className="resume-preview">
 
               <iframe
@@ -1786,8 +1608,6 @@ function App() {
 
             </div>
 
-
-            {/* RESUME ACTIONS */}
 
             <div className="resume-actions">
 
@@ -1813,6 +1633,7 @@ function App() {
           </div>
 
         </div>
+
       )}
 
     </main>
