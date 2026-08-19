@@ -4,6 +4,10 @@ import "./App.css";
 import profile from "./profile.jpg";
 import resume from "./assets/Saravanan_A_Resume.pdf";
 import song from "./assets/profile-song.mp3";
+import project1 from "./assets/project1.png";
+import project2 from "./assets/project2.png";
+import project3 from "./assets/project3.png";
+import project4 from "./assets/project4.png";
 
 function App() {
   const [submitted, setSubmitted] = useState(false);
@@ -695,8 +699,6 @@ function App() {
 
       {/* ================= PROJECTS ================= */}
 
-      {/* ================= PROJECTS ================= */}
-
       <section className="projects-section" id="projects">
 
         <p className="section-label">MY PROJECTS</p>
@@ -707,13 +709,12 @@ function App() {
 
         <div className="projects-grid">
 
-          {/* ================= PROJECT 1 ================= */}
-
+          {/* PROJECT 1 */}
           <article className="project-card">
 
             <div className="project-image">
               <img
-                src="/src/assets/project1.png"
+                src={project1}
                 alt="Smart Queue Management System"
               />
             </div>
@@ -726,8 +727,8 @@ function App() {
 
               <p>
                 An intelligent queue management system designed for
-                government hospitals to reduce patient waiting time and
-                improve the overall hospital experience.
+                government hospitals to reduce patient waiting time
+                and improve the overall hospital experience.
               </p>
 
               <div className="project-tech">
@@ -739,9 +740,20 @@ function App() {
 
               <div className="project-actions">
 
-                <a href="#" className="project-btn">
+                <button
+                  className="project-btn"
+                  onClick={() =>
+                    setSelectedProject({
+                      title: "Smart Queue Management System",
+                      image: project1,
+                      description:
+                        "An intelligent queue management platform designed for government hospitals to reduce patient waiting time, manage queues efficiently and improve the patient experience.",
+                      tech: ["React", "Node.js", "MySQL", "AI"]
+                    })
+                  }
+                >
                   View Details
-                </a>
+                </button>
 
                 <a href="#" className="project-link">
                   GitHub ↗
@@ -754,13 +766,12 @@ function App() {
           </article>
 
 
-          {/* ================= PROJECT 2 ================= */}
-
+          {/* PROJECT 2 */}
           <article className="project-card">
 
             <div className="project-image">
               <img
-                src="/src/assets/project2.png"
+                src={project2}
                 alt="SkillSphere AI"
               />
             </div>
@@ -772,9 +783,9 @@ function App() {
               <h3>SkillSphere AI</h3>
 
               <p>
-                An AI-powered career platform that helps students discover
-                internships, jobs, hackathons, events and career guidance
-                opportunities in one place.
+                An AI-powered career platform that helps students
+                discover internships, jobs, hackathons, events and
+                career guidance opportunities.
               </p>
 
               <div className="project-tech">
@@ -786,9 +797,20 @@ function App() {
 
               <div className="project-actions">
 
-                <a href="#" className="project-btn">
+                <button
+                  className="project-btn"
+                  onClick={() =>
+                    setSelectedProject({
+                      title: "SkillSphere AI",
+                      image: project2,
+                      description:
+                        "An AI-powered career platform that brings internships, jobs, hackathons, events and career guidance together in one platform for students.",
+                      tech: ["React", "Node.js", "AI", "MongoDB"]
+                    })
+                  }
+                >
                   View Details
-                </a>
+                </button>
 
                 <a href="#" className="project-link">
                   GitHub ↗
@@ -801,13 +823,12 @@ function App() {
           </article>
 
 
-          {/* ================= PROJECT 3 ================= */}
-
+          {/* PROJECT 3 */}
           <article className="project-card">
 
             <div className="project-image">
               <img
-                src="/src/assets/project3.png"
+                src={project3}
                 alt="SmartStock AI"
               />
             </div>
@@ -819,9 +840,9 @@ function App() {
               <h3>SmartStock AI</h3>
 
               <p>
-                An AI-based inventory and demand prediction platform that
-                helps businesses forecast demand, prevent stockouts and
-                make smarter inventory decisions.
+                AI-based inventory and demand prediction platform
+                that helps businesses forecast demand and prevent
+                stockouts.
               </p>
 
               <div className="project-tech">
@@ -833,9 +854,25 @@ function App() {
 
               <div className="project-actions">
 
-                <a href="#" className="project-btn">
+                <button
+                  className="project-btn"
+                  onClick={() =>
+                    setSelectedProject({
+                      title: "SmartStock AI",
+                      image: project3,
+                      description:
+                        "An AI-based inventory and demand prediction platform that helps businesses forecast product demand, prevent stockouts and make smarter inventory decisions.",
+                      tech: [
+                        "Python",
+                        "Machine Learning",
+                        "React",
+                        "SQL"
+                      ]
+                    })
+                  }
+                >
                   View Details
-                </a>
+                </button>
 
                 <a href="#" className="project-link">
                   GitHub ↗
@@ -848,14 +885,13 @@ function App() {
           </article>
 
 
-          {/* ================= PROJECT 4 ================= */}
-
+          {/* PROJECT 4 */}
           <article className="project-card">
 
             <div className="project-image">
               <img
-                src="/src/assets/project4.png"
-                alt="VyapAI MSME Growth Advisor"
+                src={project4}
+                alt="VyapAI"
               />
             </div>
 
@@ -866,9 +902,9 @@ function App() {
               <h3>VyapAI</h3>
 
               <p>
-                An AI-powered MSME growth advisor providing sales prediction,
-                supplier recommendations, cash-flow forecasting and
-                GST-ready business reports.
+                AI-powered MSME growth advisor providing sales
+                prediction, supplier recommendations, cash-flow
+                forecasting and business reports.
               </p>
 
               <div className="project-tech">
@@ -880,9 +916,25 @@ function App() {
 
               <div className="project-actions">
 
-                <a href="#" className="project-btn">
+                <button
+                  className="project-btn"
+                  onClick={() =>
+                    setSelectedProject({
+                      title: "VyapAI",
+                      image: project4,
+                      description:
+                        "An AI-powered MSME growth advisor that provides sales prediction, supplier recommendations, cash-flow forecasting and GST-ready business reports.",
+                      tech: [
+                        "Python",
+                        "AI / ML",
+                        "React",
+                        "FastAPI"
+                      ]
+                    })
+                  }
+                >
                   View Details
-                </a>
+                </button>
 
                 <a href="#" className="project-link">
                   GitHub ↗
@@ -895,6 +947,71 @@ function App() {
           </article>
 
         </div>
+
+
+        {/* ================= PROJECT DETAILS MODAL ================= */}
+
+        {selectedProject && (
+
+          <div
+            className="project-modal-overlay"
+            onClick={() => setSelectedProject(null)}
+          >
+
+            <div
+              className="project-modal"
+              onClick={(e) => e.stopPropagation()}
+            >
+
+              <button
+                className="project-modal-close"
+                onClick={() => setSelectedProject(null)}
+              >
+                ×
+              </button>
+
+              <img
+                src={selectedProject.image}
+                alt={selectedProject.title}
+                className="project-modal-image"
+              />
+
+              <div className="project-modal-content">
+
+                <span className="project-number">
+                  PROJECT DETAILS
+                </span>
+
+                <h2>{selectedProject.title}</h2>
+
+                <p>
+                  {selectedProject.description}
+                </p>
+
+                <div className="project-tech">
+
+                  {selectedProject.tech.map((tech, index) => (
+                    <span key={index}>
+                      {tech}
+                    </span>
+                  ))}
+
+                </div>
+
+                <button
+                  className="project-btn modal-close-btn"
+                  onClick={() => setSelectedProject(null)}
+                >
+                  Close
+                </button>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        )}
 
       </section>
 
