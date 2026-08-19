@@ -695,14 +695,11 @@ function App() {
 
       {/* ================= PROJECTS ================= */}
 
-      <section
-        className="projects-section reveal"
-        id="projects"
-      >
+      {/* ================= PROJECTS ================= */}
 
-        <p className="section-label">
-          MY WORK
-        </p>
+      <section className="projects-section" id="projects">
+
+        <p className="section-label">MY PROJECTS</p>
 
         <h2>
           Featured <span>Projects</span>
@@ -710,67 +707,196 @@ function App() {
 
         <div className="projects-grid">
 
-          {projects.map((project) => (
-            <div
-              className="project-wrapper"
-              key={project.number}
-            >
+          {/* ================= PROJECT 1 ================= */}
 
-              <div className="project-card">
+          <article className="project-card">
 
-                <div className="project-number">
-                  {project.number}
-                </div>
+            <div className="project-image">
+              <img
+                src="/src/assets/project1.png"
+                alt="Smart Queue Management System"
+              />
+            </div>
 
-                <h3>
-                  {project.title}
-                </h3>
+            <div className="project-content">
 
-                <p>
-                  {project.description}
-                </p>
+              <span className="project-number">01</span>
 
-                <div className="project-tech">
+              <h3>Smart Queue Management System</h3>
 
-                  {project.technologies.map((tech) => (
-                    <span key={tech}>
-                      {tech}
-                    </span>
-                  ))}
+              <p>
+                An intelligent queue management system designed for
+                government hospitals to reduce patient waiting time and
+                improve the overall hospital experience.
+              </p>
 
-                </div>
+              <div className="project-tech">
+                <span>React</span>
+                <span>Node.js</span>
+                <span>MySQL</span>
+                <span>AI</span>
+              </div>
 
-                {/* ================= GITHUB ONLY ================= */}
+              <div className="project-actions">
 
-                <div className="project-links">
+                <a href="#" className="project-btn">
+                  View Details
+                </a>
 
-                  <a
-                    href="https://github.com/saravanan2212-ai"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    GitHub ↗
-                  </a>
-
-                  <button
-                    type="button"
-                    className="project-details-btn"
-                    onClick={() => setSelectedProject(project)}
-                  >
-                    View Details →
-                  </button>
-
-                </div>
+                <a href="#" className="project-link">
+                  GitHub ↗
+                </a>
 
               </div>
 
             </div>
-          ))}
+
+          </article>
+
+
+          {/* ================= PROJECT 2 ================= */}
+
+          <article className="project-card">
+
+            <div className="project-image">
+              <img
+                src="/src/assets/project2.png"
+                alt="SkillSphere AI"
+              />
+            </div>
+
+            <div className="project-content">
+
+              <span className="project-number">02</span>
+
+              <h3>SkillSphere AI</h3>
+
+              <p>
+                An AI-powered career platform that helps students discover
+                internships, jobs, hackathons, events and career guidance
+                opportunities in one place.
+              </p>
+
+              <div className="project-tech">
+                <span>React</span>
+                <span>Node.js</span>
+                <span>AI</span>
+                <span>MongoDB</span>
+              </div>
+
+              <div className="project-actions">
+
+                <a href="#" className="project-btn">
+                  View Details
+                </a>
+
+                <a href="#" className="project-link">
+                  GitHub ↗
+                </a>
+
+              </div>
+
+            </div>
+
+          </article>
+
+
+          {/* ================= PROJECT 3 ================= */}
+
+          <article className="project-card">
+
+            <div className="project-image">
+              <img
+                src="/src/assets/project3.png"
+                alt="SmartStock AI"
+              />
+            </div>
+
+            <div className="project-content">
+
+              <span className="project-number">03</span>
+
+              <h3>SmartStock AI</h3>
+
+              <p>
+                An AI-based inventory and demand prediction platform that
+                helps businesses forecast demand, prevent stockouts and
+                make smarter inventory decisions.
+              </p>
+
+              <div className="project-tech">
+                <span>Python</span>
+                <span>Machine Learning</span>
+                <span>React</span>
+                <span>SQL</span>
+              </div>
+
+              <div className="project-actions">
+
+                <a href="#" className="project-btn">
+                  View Details
+                </a>
+
+                <a href="#" className="project-link">
+                  GitHub ↗
+                </a>
+
+              </div>
+
+            </div>
+
+          </article>
+
+
+          {/* ================= PROJECT 4 ================= */}
+
+          <article className="project-card">
+
+            <div className="project-image">
+              <img
+                src="/src/assets/project4.png"
+                alt="VyapAI MSME Growth Advisor"
+              />
+            </div>
+
+            <div className="project-content">
+
+              <span className="project-number">04</span>
+
+              <h3>VyapAI</h3>
+
+              <p>
+                An AI-powered MSME growth advisor providing sales prediction,
+                supplier recommendations, cash-flow forecasting and
+                GST-ready business reports.
+              </p>
+
+              <div className="project-tech">
+                <span>Python</span>
+                <span>AI / ML</span>
+                <span>React</span>
+                <span>FastAPI</span>
+              </div>
+
+              <div className="project-actions">
+
+                <a href="#" className="project-btn">
+                  View Details
+                </a>
+
+                <a href="#" className="project-link">
+                  GitHub ↗
+                </a>
+
+              </div>
+
+            </div>
+
+          </article>
 
         </div>
 
       </section>
-
 
       {/* ================= CERTIFICATES ================= */}
 
