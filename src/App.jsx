@@ -19,6 +19,14 @@ function App() {
   const [viewCertificate, setViewCertificate] = useState(null);
   const [showResume, setShowResume] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
+  const [aiOpen, setAiOpen] = useState(false);
+  const [aiInput, setAiInput] = useState("");
+  const [aiMessages, setAiMessages] = useState([
+    {
+      type: "bot",
+      text: "Hi! 👋 I'm Saravanan AI. Ask me about his skills, projects, education, experience or resume."
+    }
+  ]);
 
   /* ================= SCROLL REVEAL ================= */
 
@@ -63,6 +71,61 @@ function App() {
     } catch (error) {
       console.error("Audio playback failed:", error);
     }
+  };
+  const getAIResponse = (question) => {
+    const q = question.toLowerCase();
+
+    if (q.includes("skill")) {
+      return "My main skills are Python, React, JavaScript, Java, SQL, Node.js, AWS, Machine Learning and Git & GitHub.";
+    }
+
+    if (q.includes("project")) {
+      return "My featured projects are Smart Queue Management System, SkillSphere AI, AI Inventory & Demand Prediction, and AI MSME Growth Advisor.";
+    }
+
+    if (q.includes("education") || q.includes("college")) {
+      return "I am pursuing B.Tech Artificial Intelligence & Data Science at Kings Engineering College.";
+    }
+
+    if (q.includes("experience") || q.includes("internship")) {
+      return "I have experience in Full Stack Development, Python Development, Java Development and Cloud Computing.";
+    }
+
+    if (q.includes("certificate")) {
+      return "I have certificates in Cloud Computing, AWS, Full Stack Development, Java, Python and Web Development.";
+    }
+
+    if (q.includes("resume") || q.includes("cv")) {
+      return "You can view or download my resume using the Resume buttons in the Hero section.";
+    }
+
+    if (q.includes("contact") || q.includes("email")) {
+      return "You can contact me through the Contact section using Email, LinkedIn, Instagram or GitHub.";
+    }
+
+    return "Sorry 😅 I don't know that yet. Try asking about my skills, projects, education, experience, certificates or resume.";
+  };
+
+  const handleAISubmit = (e) => {
+    e.preventDefault();
+
+    if (!aiInput.trim()) return;
+
+    const question = aiInput.trim();
+
+    setAiMessages((prev) => [
+      ...prev,
+      {
+        type: "user",
+        text: question,
+      },
+      {
+        type: "bot",
+        text: getAIResponse(question),
+      },
+    ]);
+
+    setAiInput("");
   };
 
   /* ================= PROJECT DATA ================= */
@@ -1635,6 +1698,60 @@ function App() {
         </div>
 
       )}
+      {aiOpen && (
+        <div className="ai-chat-window">
+
+          <div className="ai-chat-header">
+            <div>
+              <h3>🤖 Saravanan AI</h3>
+              <span>● Online</span>
+            </div>
+
+            <button onClick={() => setAiOpen(false)}>
+              ✕
+            </button>
+          </div>
+
+          <div className="ai-chat-body">
+
+            {aiMessages.map((message, index) => (
+              <div
+                key={index}
+                className={`ai-message ${message.type}`}
+              >
+                {message.text}
+              </div>
+            ))}
+
+          </div>
+
+          <form
+            className="ai-chat-input"
+            onSubmit={handleAISubmit}
+          >
+
+            <input
+              type="text"
+              value={aiInput}
+              onChange={(e) => setAiInput(e.target.value)}
+              placeholder="Ask me anything..."
+            />
+
+            <button type="submit">
+              ➤
+            </button>
+
+          </form>
+
+        </div>
+      )}
+
+      <button
+        className="ai-floating-button"
+        onClick={() => setAiOpen(!aiOpen)}
+      >
+        {aiOpen ? "✕" : "🤖"}
+      </button>
 
     </main>
   );
