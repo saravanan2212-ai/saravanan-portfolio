@@ -281,7 +281,7 @@ function App() {
       image: "Certificate2.jpg",
       title: "Cloud Computing AWS",
       organization: "AWS",
-      date: "2025",
+      date: "2026",
       credentialId: "AWS-002",
     },
     {
@@ -295,7 +295,7 @@ function App() {
       image: "Certificate4.jpg",
       title: "Java Programming",
       organization: "Java Programming",
-      date: "2025",
+      date: "2026",
       credentialId: "CA/DF1/32919",
     },
     {
@@ -309,7 +309,7 @@ function App() {
       image: "Certificate6.jpg",
       title: "Cloud Computing Intern",
       organization: "Cloud Computing",
-      date: "2025",
+      date: "2026",
       credentialId: "1733940555",
     },
     {
@@ -330,14 +330,14 @@ function App() {
       image: "Certificate9.jpg",
       title: "Java Developer Intern",
       organization: "Java Development",
-      date: "2025",
+      date: "2026",
       credentialId: "1733940555",
     },
     {
       image: "Certificate10.jpg",
       title: "Python Programming",
       organization: "Python Programming",
-      date: "2025",
+      date: "2026",
       credentialId: "CRX-20260602-A010",
     },
     {
