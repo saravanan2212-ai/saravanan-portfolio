@@ -21,6 +21,7 @@ function App() {
   const [isPlaying, setIsPlaying] = useState(false);
   const [aiOpen, setAiOpen] = useState(false);
   const [aiInput, setAiInput] = useState("");
+  const [isDarkMode, setIsDarkMode] = useState(true);
   const [aiMessages, setAiMessages] = useState([
     {
       type: "bot",
@@ -421,8 +422,7 @@ function App() {
   };
 
   return (
-    <main className="profile-page">
-
+    <main className={`profile-page ${isDarkMode ? "dark-mode" : "light-mode"}`}>
       {/* ================= NAVBAR ================= */}
 
       <nav className="navbar">

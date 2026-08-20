@@ -3290,3 +3290,209 @@ section h2 span {
   }
 
 }
+
+/* =========================================================
+   DARK / LIGHT MODE TOGGLE
+========================================================= */
+
+.theme-toggle {
+  width: 44px;
+  height: 44px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.06);
+  color: #ffffff;
+  font-size: 20px;
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transition: all 0.3s ease;
+}
+
+.theme-toggle:hover {
+  transform: rotate(15deg) scale(1.08);
+  background: rgba(255, 255, 255, 0.12);
+}
+
+
+/* =========================================================
+   LIGHT MODE
+========================================================= */
+
+.profile-page.light-mode {
+  background: #f5f7fb;
+  color: #172033;
+}
+
+.profile-page.light-mode .navbar {
+  background: rgba(255, 255, 255, 0.92);
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.profile-page.light-mode .logo {
+  color: #111827;
+}
+
+.profile-page.light-mode .nav-links a {
+  color: #374151;
+}
+
+.profile-page.light-mode .nav-links a:hover {
+  color: #2563eb;
+}
+
+.profile-page.light-mode .theme-toggle {
+  background: #eef2ff;
+  border-color: #dbeafe;
+  color: #111827;
+}
+
+.profile-page.light-mode .menu-btn {
+  background: #eef2ff;
+  color: #111827;
+  border-color: #dbeafe;
+}
+
+
+/* Sections */
+
+.profile-page.light-mode .about-section,
+.profile-page.light-mode .education-section,
+.profile-page.light-mode .skills-section,
+.profile-page.light-mode .projects-section,
+.profile-page.light-mode .certificates-section,
+.profile-page.light-mode .experience-section,
+.profile-page.light-mode .contact-section {
+  color: #172033;
+}
+
+
+/* Headings */
+
+.profile-page.light-mode h1,
+.profile-page.light-mode h2,
+.profile-page.light-mode h3,
+.profile-page.light-mode h4 {
+  color: #111827;
+}
+
+
+/* Normal text */
+
+.profile-page.light-mode p {
+  color: #4b5563;
+}
+
+
+/* Cards */
+
+.profile-page.light-mode .skill-card,
+.profile-page.light-mode .project-card,
+.profile-page.light-mode .certificate-card,
+.profile-page.light-mode .experience-card,
+.profile-page.light-mode .contact-card {
+  background: #ffffff;
+  border-color: #e5e7eb;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.06);
+}
+
+
+/* Card hover */
+
+.profile-page.light-mode .skill-card:hover,
+.profile-page.light-mode .project-card:hover,
+.profile-page.light-mode .certificate-card:hover,
+.profile-page.light-mode .experience-card:hover,
+.profile-page.light-mode .contact-card:hover {
+  box-shadow: 0 15px 35px rgba(15, 23, 42, 0.1);
+}
+
+
+/* Timeline */
+
+.profile-page.light-mode .timeline-content {
+  background: #ffffff;
+  border-color: #e5e7eb;
+}
+
+
+/* Project technology */
+
+.profile-page.light-mode .project-tech span,
+.profile-page.light-mode .experience-tech span,
+.profile-page.light-mode .modal-tech span {
+  background: #eff6ff;
+  color: #2563eb;
+  border-color: #dbeafe;
+}
+
+
+/* Contact */
+
+.profile-page.light-mode .contact-form input,
+.profile-page.light-mode .contact-form textarea {
+  background: #ffffff;
+  color: #111827;
+  border-color: #d1d5db;
+}
+
+.profile-page.light-mode .contact-form input::placeholder,
+.profile-page.light-mode .contact-form textarea::placeholder {
+  color: #9ca3af;
+}
+
+
+/* Footer */
+
+.profile-page.light-mode .footer {
+  background: #e9eef7;
+  color: #172033;
+}
+
+
+/* Music */
+
+.profile-page.light-mode .music-player {
+  background: rgba(255, 255, 255, 0.95);
+  border-color: #e5e7eb;
+  color: #111827;
+}
+
+
+/* Back to top */
+
+.profile-page.light-mode .back-to-top {
+  background: #2563eb;
+  color: #ffffff;
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 768px) {
+
+  .theme-toggle {
+    width: 40px;
+    height: 40px;
+    font-size: 18px;
+  }
+
+}
+
+body {
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
+}
+
+.profile-page {
+  min-height: 100vh;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
+}
